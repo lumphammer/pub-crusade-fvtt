@@ -58,8 +58,8 @@ importers:
         specifier: ^11.2.0
         version: 11.2.0
       happy-dom:
-        specifier: ^15.11.7
-        version: 15.11.7
+        specifier: ^16.2.6
+        version: 16.2.6
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -83,7 +83,7 @@ importers:
         version: 4.3.0(rollup@4.27.4)(typescript@5.7.2)(vite@6.0.6(@types/node@22.5.2)(sass-embedded@1.83.0)(tsx@4.19.2))
       vitest:
         specifier: ^2.1.8
-        version: 2.1.8(@types/node@22.5.2)(happy-dom@15.11.7)(sass-embedded@1.83.0)
+        version: 2.1.8(@types/node@22.5.2)(happy-dom@16.2.6)(sass-embedded@1.83.0)
 
   packages/shared-fvtt-bits:
     dependencies:
@@ -183,7 +183,7 @@ importers:
         version: 4.3.0(rollup@4.27.4)(typescript@5.7.2)(vite@6.0.3(@types/node@22.5.2)(sass-embedded@1.83.0)(tsx@4.19.2))
       vitest:
         specifier: ^2.1.6
-        version: 2.1.8(@types/node@22.5.2)(happy-dom@15.11.7)(sass-embedded@1.83.0)
+        version: 2.1.8(@types/node@22.5.2)(happy-dom@16.2.6)(sass-embedded@1.83.0)
 
 packages:
 
@@ -1018,6 +1018,7 @@ packages:
 
   '@pixi/graphics-smooth@0.0.22':
     resolution: {integrity: sha512-qq2u+BJBIDBuuSTc2Xzm1D/8RiiKBdxnVDiMb7Go5v8achnV5ctC6m+rf8Mq0sWm66mbOqu1aq/9efT4A4sPrA==}
+    engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       '@pixi/constants': ^6.0.4
       '@pixi/core': ^6.0.4
@@ -2322,8 +2323,8 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@15.11.7:
-    resolution: {integrity: sha512-KyrFvnl+J9US63TEzwoiJOQzZBJY7KgBushJA8X61DMbNsH+2ONkDuLDnCnwUiPTF42tLoEmrPyoqbenVA5zrg==}
+  happy-dom@16.2.6:
+    resolution: {integrity: sha512-pl9wpbvThd2BGptDW/DbeZgCVjjFJAe1+rGJ4SdXd1nLhGngaklpGohKlX6bSJwLH8vSi4VDhQsC2Mqa6eiyhg==}
     engines: {node: '>=18.0.0'}
 
   has-bigints@1.0.2:
@@ -5983,9 +5984,8 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@15.11.7:
+  happy-dom@16.2.6:
     dependencies:
-      entities: 4.5.0
       webidl-conversions: 7.0.0
       whatwg-mimetype: 3.0.0
 
@@ -7153,7 +7153,7 @@ snapshots:
       sass-embedded: 1.83.0
       tsx: 4.19.2
 
-  vitest@2.1.8(@types/node@22.5.2)(happy-dom@15.11.7)(sass-embedded@1.83.0):
+  vitest@2.1.8(@types/node@22.5.2)(happy-dom@16.2.6)(sass-embedded@1.83.0):
     dependencies:
       '@vitest/expect': 2.1.8
       '@vitest/mocker': 2.1.8(vite@5.4.11(@types/node@22.5.2)(sass-embedded@1.83.0))
@@ -7177,7 +7177,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.5.2
-      happy-dom: 15.11.7
+      happy-dom: 16.2.6
     transitivePeerDependencies:
       - less
       - lightningcss
