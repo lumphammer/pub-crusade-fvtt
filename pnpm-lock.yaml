@@ -58,8 +58,8 @@ importers:
         specifier: ^11.3.0
         version: 11.3.0
       happy-dom:
-        specifier: ^16.8.1
-        version: 16.8.1
+        specifier: ^17.1.0
+        version: 17.1.0
       prettier:
         specifier: ^3.5.1
         version: 3.5.1
@@ -83,7 +83,7 @@ importers:
         version: 4.3.0(rollup@4.34.8)(typescript@5.7.3)(vite@6.1.0(@types/node@22.5.2)(sass-embedded@1.85.0)(tsx@4.19.2))
       vitest:
         specifier: ^3.0.6
-        version: 3.0.6(@types/node@22.5.2)(happy-dom@16.8.1)(sass-embedded@1.85.0)(tsx@4.19.2)
+        version: 3.0.6(@types/node@22.5.2)(happy-dom@17.1.0)(sass-embedded@1.85.0)(tsx@4.19.2)
 
   packages/shared-fvtt-bits:
     dependencies:
@@ -183,7 +183,7 @@ importers:
         version: 4.3.0(rollup@4.34.8)(typescript@5.7.2)(vite@6.0.3(@types/node@22.5.2)(sass-embedded@1.85.0)(tsx@4.19.2))
       vitest:
         specifier: ^2.1.6
-        version: 2.1.8(@types/node@22.5.2)(happy-dom@16.8.1)(sass-embedded@1.85.0)
+        version: 2.1.8(@types/node@22.5.2)(happy-dom@17.1.0)(sass-embedded@1.85.0)
 
 packages:
 
@@ -2472,8 +2472,8 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@16.8.1:
-    resolution: {integrity: sha512-n0QrmT9lD81rbpKsyhnlz3DgnMZlaOkJPpgi746doA+HvaMC79bdWkwjrNnGJRvDrWTI8iOcJiVTJ5CdT/AZRw==}
+  happy-dom@17.1.0:
+    resolution: {integrity: sha512-9tUhXyePCjzUMycaHS/IzrIpF69xiq/laAT7golk4MtZ6t8ft5+Rv7U3lfrs2b4NMH0JTL3EhZzjfahrPmOnaQ==}
     engines: {node: '>=18.0.0'}
 
   has-bigints@1.0.2:
@@ -6380,7 +6380,7 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@16.8.1:
+  happy-dom@17.1.0:
     dependencies:
       webidl-conversions: 7.0.0
       whatwg-mimetype: 3.0.0
@@ -7621,7 +7621,7 @@ snapshots:
       sass-embedded: 1.85.0
       tsx: 4.19.2
 
-  vitest@2.1.8(@types/node@22.5.2)(happy-dom@16.8.1)(sass-embedded@1.85.0):
+  vitest@2.1.8(@types/node@22.5.2)(happy-dom@17.1.0)(sass-embedded@1.85.0):
     dependencies:
       '@vitest/expect': 2.1.8
       '@vitest/mocker': 2.1.8(vite@5.4.11(@types/node@22.5.2)(sass-embedded@1.85.0))
@@ -7645,7 +7645,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.5.2
-      happy-dom: 16.8.1
+      happy-dom: 17.1.0
     transitivePeerDependencies:
       - less
       - lightningcss
@@ -7657,7 +7657,7 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@3.0.6(@types/node@22.5.2)(happy-dom@16.8.1)(sass-embedded@1.85.0)(tsx@4.19.2):
+  vitest@3.0.6(@types/node@22.5.2)(happy-dom@17.1.0)(sass-embedded@1.85.0)(tsx@4.19.2):
     dependencies:
       '@vitest/expect': 3.0.6
       '@vitest/mocker': 3.0.6(vite@6.1.0(@types/node@22.5.2)(sass-embedded@1.85.0)(tsx@4.19.2))
@@ -7681,7 +7681,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.5.2
-      happy-dom: 16.8.1
+      happy-dom: 17.1.0
     transitivePeerDependencies:
       - jiti
       - less

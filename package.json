@@ -32,7 +32,7 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "fs-extra": "^11.3.0",
-    "happy-dom": "^16.8.1",
+    "happy-dom": "^17.1.0",
     "prettier": "^3.5.1",
     "rollup-plugin-visualizer": "^5.13.1",
     "sass-embedded": "^1.85.0",
