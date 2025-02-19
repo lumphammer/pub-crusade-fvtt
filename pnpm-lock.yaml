@@ -23,6 +23,9 @@ importers:
       '@radix-ui/react-switch':
         specifier: ^1.1.3
         version: 1.1.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      eslint:
+        specifier: '8'
+        version: 8.57.1
       nanoid:
         specifier: ^5.1.0
         version: 5.1.0
@@ -5001,16 +5004,6 @@ snapshots:
       '@babel/types': 7.25.6
       entities: 4.5.0
 
-  '@svgr/plugin-jsx@8.1.0(@svgr/core@8.1.0(typescript@5.7.2))':
-    dependencies:
-      '@babel/core': 7.25.8
-      '@svgr/babel-preset': 8.1.0(@babel/core@7.25.8)
-      '@svgr/core': 8.1.0(typescript@5.7.2)
-      '@svgr/hast-util-to-babel-ast': 8.0.0
-      svg-parser: 2.0.4
-    transitivePeerDependencies:
-      - supports-color
-
   '@svgr/plugin-jsx@8.1.0(@svgr/core@8.1.0(typescript@5.7.3))':
     dependencies:
       '@babel/core': 7.25.8
@@ -7571,7 +7564,7 @@ snapshots:
     dependencies:
       '@rollup/pluginutils': 5.1.3(rollup@4.34.8)
       '@svgr/core': 8.1.0(typescript@5.7.2)
-      '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.7.2))
+      '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.7.3))
       vite: 6.0.3(@types/node@22.5.2)(sass-embedded@1.85.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - rollup
