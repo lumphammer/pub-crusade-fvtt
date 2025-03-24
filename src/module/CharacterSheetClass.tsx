@@ -1,4 +1,4 @@
-import { ReactApplicationMixin } from "@lumphammer/shared-fvtt-bits/src/ReactApplicationMixin";
+import { ReactApplicationV2Mixin } from "@lumphammer/shared-fvtt-bits/src/ReactApplicationV2Mixin";
 
 import { CharacterSheet } from "../components/CharacterSheet";
 import { reactTemplatePath, systemId } from "../constants";
@@ -7,24 +7,25 @@ import { assertCharacterActor } from "../v10Types";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-class CharacterSheetClassBase extends ActorSheet {
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: [systemId, "sheet", "actor"],
-      template: reactTemplatePath,
+class CharacterSheetClassBase extends foundry.applications.sheets.ActorSheetV2 {
+  static DEFAULT_OPTIONS = {
+    classes: [systemId, "sheet", "actor"],
+    template: reactTemplatePath,
+    position: {
       width: 777,
       height: 900,
-    });
-  }
+    },
+    window: {
+      resizable: true,
+    },
+  };
 }
 
-const render = (sheet: CharacterSheetClassBase) => {
-  assertCharacterActor(sheet.document);
-  return <CharacterSheet actor={sheet.document} foundryApplication={sheet} />;
+const render = () => {
+  return <CharacterSheet />;
 };
 
-export const CharacterSheetClass = ReactApplicationMixin(
+export const CharacterSheetClass = ReactApplicationV2Mixin(
   "CharacterSheetClass",
   CharacterSheetClassBase,
   render,
