@@ -1,10 +1,9 @@
 import createCache from "@emotion/cache";
 import { css } from "@emotion/css";
 import { CacheProvider as EmotionCacheProvider, Global } from "@emotion/react";
-import { FoundryAppContext } from "@lumphammer/shared-fvtt-bits/src/FoundryAppContext";
+import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 import {
   ReactNode,
-  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -14,7 +13,6 @@ import {
 import { ThemeContext } from "../themes/ThemeContext";
 import { ThemeV1 } from "../themes/types";
 import { ErrorBoundary } from "./ErrorBoundary";
-import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 
 type CSSResetProps = {
   children: ReactNode;

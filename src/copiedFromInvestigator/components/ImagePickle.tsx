@@ -1,11 +1,10 @@
+import { FoundryAppV2Context } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 import React, { Fragment, useCallback, useContext, useState } from "react";
 
 import { getTokenizer } from "../functions/getTokenizer";
 import { assertGame } from "../functions/utilities";
 import { ThemeContext } from "../themes/ThemeContext";
 import { ImagePickerLink } from "./ImagePickerLink";
-
-import { FoundryAppV2Context } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 
 const cover = {
   position: "absolute",
