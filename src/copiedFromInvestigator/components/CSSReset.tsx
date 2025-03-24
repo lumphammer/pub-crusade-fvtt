@@ -2,13 +2,7 @@ import createCache from "@emotion/cache";
 import { css } from "@emotion/css";
 import { CacheProvider as EmotionCacheProvider, Global } from "@emotion/react";
 import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
-import {
-  ReactNode,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 import { ThemeContext } from "../themes/ThemeContext";
 import { ThemeV1 } from "../themes/types";
