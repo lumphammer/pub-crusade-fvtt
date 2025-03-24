@@ -1,4 +1,5 @@
 import { PubCrusadeActor } from "./module/PubCrusadeActor";
+import * as constants from "./constants";
 
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
@@ -46,10 +47,6 @@ export class CharacterModel extends foundry.abstract.TypeDataModel<
   static defineSchema(): CharacterSchema {
     return characterDataSchema;
   }
-
-  // printTell() {
-  //   console.log(this.tell);
-  // }
 }
 
 export type CharacterActor = PubCrusadeActor & { system: CharacterModel };
