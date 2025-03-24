@@ -1,7 +1,3 @@
-import * as constants from "./constants";
-import { PubCrusadeActor } from "./module/PubCrusadeActor";
-import { CharacterSystemData } from "./types";
-
 // this is all junk to allow us to start using v10's `.system` property
 
 // /////////////////////////////////////////////////////////////////////////////
