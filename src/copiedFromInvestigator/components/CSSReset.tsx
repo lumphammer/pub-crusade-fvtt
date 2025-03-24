@@ -14,6 +14,7 @@ import {
 import { ThemeContext } from "../themes/ThemeContext";
 import { ThemeV1 } from "../themes/types";
 import { ErrorBoundary } from "./ErrorBoundary";
+import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 
 type CSSResetProps = {
   children: ReactNode;
@@ -47,21 +48,24 @@ export const CSSReset = ({
     }
   }, [noStyleAppWindow, theme.appWindowStyle]);
 
-  const app = useContext(FoundryAppContext) as Application<Application.Options>;
+  const app = useFoundryAppV2();
 
-  const [head, setHead] = useState(app?.element.get(0)?.closest("head"));
+  const [head, setHead] = useState(app.element.closest("head"));
 
   useEffect(() => {
-    const popoutHandler = (poppedApp: Application, newWindow: Window) => {
-      if (poppedApp.appId === app?.appId) {
+    const popoutHandler = (
+      poppedApp: foundry.applications.api.ApplicationV2,
+      newWindow: Window,
+    ) => {
+      if (poppedApp.id === app.id) {
         setHead(newWindow.document.head);
       }
     };
     const dialogHandler = (
-      dialoggedApp: Application,
+      dialoggedApp: foundry.applications.api.ApplicationV2,
       info: PopOut.DialogHookInfo,
     ) => {
-      if (dialoggedApp.appId === app?.appId) {
+      if (dialoggedApp.id === app.id) {
         setHead(info.window.document.head);
       }
     };
@@ -71,7 +75,7 @@ export const CSSReset = ({
       Hooks.off("PopOut:popout", popoutHandler);
       Hooks.off("PopOut:dialog", dialogHandler);
     };
-  }, [app?.appId]);
+  }, [app.id]);
 
   const cache = useMemo(() => {
     return createCache({

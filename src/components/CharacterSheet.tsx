@@ -11,13 +11,10 @@ import { Roll } from "./Roll";
 import { blackboard } from "./styles";
 import { Tabs } from "./Tabs";
 import { TopBits } from "./TopBits";
-import { FoundryAppV2Context } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
+import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 
 export const CharacterSheet = () => {
-  const application = useContext(FoundryAppV2Context);
-  if (application === null) {
-    throw new Error("CharacterSheet must be used within a Foundry application");
-  }
+  const application = useFoundryAppV2();
   if (!(application instanceof foundry.applications.sheets.ActorSheetV2)) {
     throw new Error("CharacterSheet must be used within an ActorSheetV2");
   }

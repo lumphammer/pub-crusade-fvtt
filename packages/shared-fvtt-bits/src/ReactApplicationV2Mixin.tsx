@@ -8,6 +8,7 @@ import ApplicationV2 = foundry.applications.api.ApplicationV2;
 
 import ApplicationConfiguration = foundry.applications.types.ApplicationConfiguration;
 import RenderOptions = foundry.applications.api.ApplicationV2.RenderOptions;
+import { FoundryAppV2Context } from "./FoundryAppV2Context";
 
 // so Constructor<Application> is any class which is an Application
 type ApplicationV2Constructor = Constructor<ApplicationV2>;
@@ -76,12 +77,17 @@ export function ReactApplicationV2Mixin<TBase extends ApplicationV2Constructor>(
     override _renderHTML() {
       const content = (
         <StrictMode>
-          <FoundryAppContext.Provider
+          <FoundryAppV2Context.Provider
             value={this}
-            key={"FoundryAppContextProvider"}
+            key={"FoundryAppV2ContextProvider"}
           >
-            {render()}
-          </FoundryAppContext.Provider>
+            <FoundryAppContext.Provider
+              value={this}
+              key={"FoundryAppContextProvider"}
+            >
+              {render()}
+            </FoundryAppContext.Provider>
+          </FoundryAppV2Context.Provider>
         </StrictMode>
       );
 
