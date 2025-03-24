@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Unreleased
+
+* Foundry v13 compatible
+* Uses ApplicationV2
+
+
 ## 1.0.6 (2024-12-12)
 
 * No changes, just releasing to get recent automated updates. out there.
