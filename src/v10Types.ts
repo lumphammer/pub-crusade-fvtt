@@ -1,40 +1,69 @@
-// this is all junk to allow us to start using v10's `.system` property
+import { PubCrusadeActor } from "./module/PubCrusadeActor";
 
-// /////////////////////////////////////////////////////////////////////////////
-// ITEMS
+const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
+  foundry.data.fields;
 
-// interface PubCrusadeItemSystem<Type extends string, SystemData>
-//   extends PubCrusadeItem {
-//   type: Type;
-//   system: SystemData;
-// }
+// https://foundryvtt.com/article/system-development/
+// https://foundryvtt.com/article/system-data-models/
+export const characterDataSchema = {
+  title: new StringField(),
+  titleDie: new StringField({ initial: "d6" }),
+  notes: new HTMLField(),
+  order: new StringField(),
+  tenet: new StringField(),
+  personalQuest: new SchemaField({
+    name: new StringField(),
+    completed: new BooleanField(),
+  }),
+  orderQuest: new SchemaField({
+    name: new StringField(),
+    completed: new BooleanField(),
+  }),
+  conditions: new ArrayField(
+    new SchemaField({
+      id: new StringField({ required: true }),
+      name: new StringField({ required: true }),
+    }),
+  ),
+  drinks: new ArrayField(
+    new SchemaField({
+      id: new StringField({ required: true }),
+      what: new StringField({ required: true }),
+      where: new StringField({ required: true }),
+    }),
+  ),
+};
 
-// /////////////////////////////////////////////////////////////////////////////
-// ACTORS
+export type CharacterSchema = typeof characterDataSchema;
 
-// interface PubCrusadeActorSystem<Type extends string, SystemData>
-//   extends PubCrusadeActor {
-//   type: Type;
-//   system: SystemData;
-// }
+export type CharacterSystemData =
+  foundry.data.fields.SchemaField.PersistedData<CharacterSchema>;
 
-// export type CharacterActor = PubCrusadeActorSystem<
-//   typeof constants.character,
-//   CharacterSystemData
-// >;
+export class CharacterModel extends foundry.abstract.TypeDataModel<
+  CharacterSchema,
+  Actor
+> {
+  static defineSchema(): CharacterSchema {
+    return characterDataSchema;
+  }
 
-// export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
-//   return actor?.type === constants.character;
-// }
+  // printTell() {
+  //   console.log(this.tell);
+  // }
+}
 
-// export function assertCharacterActor(
-//   actor: Actor | null,
-// ): asserts actor is CharacterActor {
-//   if (!isCharacterActor(actor)) {
-//     throw new Error("not a character actor");
-//   }
-// }
+export type CharacterActor = PubCrusadeActor & { system: CharacterModel };
 
-// declare global {
-//   var isEmpty: typeof isObjectEmpty; // eslint-disable-line no-var
-// }
+export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
+  // @ts-expect-error - this is okay?
+  return actor?.type === constants.character;
+}
+
+// I'd use a class method for this but https://github.com/microsoft/TypeScript/issues/36931
+export function assertCharacterActor(
+  actor: Actor | null,
+): asserts actor is CharacterActor {
+  if (!isCharacterActor(actor)) {
+    throw new Error("not a Dictator actor");
+  }
+}

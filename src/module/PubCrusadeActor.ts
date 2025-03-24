@@ -5,7 +5,7 @@
 import { nanoid } from "nanoid";
 
 import { systemLogger } from "../copiedFromInvestigator/functions/utilities";
-import { assertCharacterActor } from "../pubCrusade";
+import { assertCharacterActor } from "../v10Types";
 
 export class PubCrusadeActor extends Actor {
   setName = (name: string): Promise<this | undefined> => {

@@ -1,5 +1,5 @@
 import { TabContainer } from "../copiedFromInvestigator/components/TabContainer";
-import { CharacterActor } from "../pubCrusade";
+import { CharacterActor } from "../v10Types";
 import { ConditionsList } from "./ConditionsList";
 import { DrinksList } from "./DrinksList";
 import { Notes } from "./Notes";

@@ -2,8 +2,7 @@ import { ReactApplicationMixin } from "@lumphammer/shared-fvtt-bits/src/ReactApp
 
 import { CharacterSheet } from "../components/CharacterSheet";
 import { reactTemplatePath, systemId } from "../constants";
-import { assertCharacterActor } from "../pubCrusade";
-
+import { assertCharacterActor } from "../v10Types";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}

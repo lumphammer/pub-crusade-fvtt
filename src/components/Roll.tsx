@@ -2,7 +2,7 @@ import React from "react";
 
 import { AsyncNumberInput } from "../copiedFromInvestigator/components/inputs/AsyncNumberInput";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
-import { CharacterActor } from "../pubCrusade";
+import { CharacterActor } from "../v10Types";
 import { Panel } from "./Panel";
 
 interface RollProps {
