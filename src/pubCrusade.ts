@@ -10,36 +10,66 @@ const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
 
 // https://foundryvtt.com/article/system-data-models/
-export class CharacterData extends foundry.abstract.TypeDataModel {
-  static defineSchema() {
-    return {
-      title: new StringField(),
-      titleDie: new StringField({ initial: "d6" }),
-      notes: new HTMLField(),
-      order: new StringField(),
-      tenet: new StringField(),
-      personalQuest: new SchemaField({
-        name: new StringField(),
-        completed: new BooleanField(),
-      }),
-      orderQuest: new SchemaField({
-        name: new StringField(),
-        completed: new BooleanField(),
-      }),
-      conditions: new ArrayField(
-        new SchemaField({
-          id: new StringField(),
-          name: new StringField(),
-        }),
-      ),
-      drinks: new ArrayField(
-        new SchemaField({
-          id: new StringField(),
-          what: new StringField(),
-          where: new StringField(),
-        }),
-      ),
-    };
+export const characterDataSchema = {
+  title: new StringField(),
+  titleDie: new StringField({ initial: "d6" }),
+  notes: new HTMLField(),
+  order: new StringField(),
+  tenet: new StringField(),
+  personalQuest: new SchemaField({
+    name: new StringField(),
+    completed: new BooleanField(),
+  }),
+  orderQuest: new SchemaField({
+    name: new StringField(),
+    completed: new BooleanField(),
+  }),
+  conditions: new ArrayField(
+    new SchemaField({
+      id: new StringField({ required: true }),
+      name: new StringField({ required: true }),
+    }),
+  ),
+  drinks: new ArrayField(
+    new SchemaField({
+      id: new StringField({ required: true }),
+      what: new StringField({ required: true }),
+      where: new StringField({ required: true }),
+    }),
+  ),
+};
+
+export type CharacterSchema = typeof characterDataSchema;
+
+export type CharacterSystemData =
+  foundry.data.fields.SchemaField.PersistedData<CharacterSchema>;
+
+export class CharacterModel extends foundry.abstract.TypeDataModel<
+  CharacterSchema,
+  Actor
+> {
+  static defineSchema(): CharacterSchema {
+    return characterDataSchema;
+  }
+
+  // printTell() {
+  //   console.log(this.tell);
+  // }
+}
+
+export type CharacterActor = PubCrusadeActor & { system: CharacterModel };
+
+export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
+  // @ts-expect-error - this is okay?
+  return actor?.type === constants.character;
+}
+
+// I'd use a class method for this but https://github.com/microsoft/TypeScript/issues/36931
+export function assertCharacterActor(
+  actor: Actor | null,
+): asserts actor is CharacterActor {
+  if (!isCharacterActor(actor)) {
+    throw new Error("not a Dictator actor");
   }
 }
 
@@ -57,7 +87,7 @@ Hooks.once("init", () => {
   systemLogger.log("Initializing");
 
   // data models
-  CONFIG.Actor.dataModels["character"] = CharacterData;
+  CONFIG.Actor.dataModels["character"] = CharacterModel;
 
   // document classes
   CONFIG.Actor.documentClass = PubCrusadeActor;
@@ -69,39 +99,3 @@ Hooks.once("init", () => {
     types: [constants.character],
   });
 });
-
-declare global {
-  namespace foundry {
-    namespace data.fields {
-      class SchemaField {
-        constructor(fields: Record<string, any>);
-      }
-      class HTMLField {}
-      class NumberField {
-        constructor(fields: Record<string, any>);
-      }
-      class StringField {
-        constructor(options?: Record<string, any>);
-      }
-      class FilePathField {
-        constructor(fields: Record<string, any>);
-      }
-      class ArrayField {
-        constructor(type: any);
-      }
-      class BooleanField {
-        constructor();
-      }
-    }
-    namespace abstract {
-      class TypeDataModel {}
-    }
-  }
-  interface CONFIG {
-    Actor: {
-      dataModels: Record<string, any>;
-      documentClass: typeof Actor;
-    };
-    // dataModels: Record<string, any>;
-  }
-}

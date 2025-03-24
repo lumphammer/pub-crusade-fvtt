@@ -5,7 +5,7 @@
 import { nanoid } from "nanoid";
 
 import { systemLogger } from "../copiedFromInvestigator/functions/utilities";
-import { assertCharacterActor } from "../v10Types";
+import { assertCharacterActor } from "../pubCrusade";
 
 export class PubCrusadeActor extends Actor {
   setName = (name: string): Promise<this | undefined> => {
@@ -150,7 +150,7 @@ export class PubCrusadeActor extends Actor {
     const rollExpression = `${die} + @modifier`;
 
     const roll = new Roll(rollExpression, { modifier });
-    await roll.evaluate({ async: true });
+    await roll.evaluate();
     systemLogger.log(roll);
     const total = roll.total;
     if (total === undefined) {

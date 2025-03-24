@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { RichTextEditor } from "../copiedFromInvestigator/components/inputs/RichTextEditor";
-import { CharacterActor } from "../v10Types";
+import { CharacterActor } from "../pubCrusade";
 
 interface NotesProps {
   actor: CharacterActor;

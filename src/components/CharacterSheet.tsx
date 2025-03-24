@@ -3,7 +3,7 @@ import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCove
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
 import { pubTheme } from "../themes/pubTheme";
-import { CharacterActor } from "../v10Types";
+import { CharacterActor } from "../pubCrusade";
 import { DrinksCounter } from "./DrinksCounter";
 import { Panel } from "./Panel";
 import { Roll } from "./Roll";

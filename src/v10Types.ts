@@ -16,29 +16,29 @@ import { CharacterSystemData } from "./types";
 // /////////////////////////////////////////////////////////////////////////////
 // ACTORS
 
-interface PubCrusadeActorSystem<Type extends string, SystemData>
-  extends PubCrusadeActor {
-  type: Type;
-  system: SystemData;
-}
+// interface PubCrusadeActorSystem<Type extends string, SystemData>
+//   extends PubCrusadeActor {
+//   type: Type;
+//   system: SystemData;
+// }
 
-export type CharacterActor = PubCrusadeActorSystem<
-  typeof constants.character,
-  CharacterSystemData
->;
+// export type CharacterActor = PubCrusadeActorSystem<
+//   typeof constants.character,
+//   CharacterSystemData
+// >;
 
-export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
-  return actor?.type === constants.character;
-}
+// export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
+//   return actor?.type === constants.character;
+// }
 
-export function assertCharacterActor(
-  actor: Actor | null,
-): asserts actor is CharacterActor {
-  if (!isCharacterActor(actor)) {
-    throw new Error("not a character actor");
-  }
-}
+// export function assertCharacterActor(
+//   actor: Actor | null,
+// ): asserts actor is CharacterActor {
+//   if (!isCharacterActor(actor)) {
+//     throw new Error("not a character actor");
+//   }
+// }
 
-declare global {
-  var isEmpty: typeof isObjectEmpty; // eslint-disable-line no-var
-}
+// declare global {
+//   var isEmpty: typeof isObjectEmpty; // eslint-disable-line no-var
+// }
