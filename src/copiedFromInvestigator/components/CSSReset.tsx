@@ -32,7 +32,7 @@ export const CSSReset = ({
 }: CSSResetProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  // add app window styles if there's a continaing app window
+  // add app window styles if there's a containing app window
   useEffect(() => {
     // interacting with Foundry's stuff with jQuery feels a bit 2001 but putting
     // it in a hook keeps is nice and encapsulated.
@@ -47,7 +47,7 @@ export const CSSReset = ({
     }
   }, [noStyleAppWindow, theme.appWindowStyle]);
 
-  const app = useContext(FoundryAppContext);
+  const app = useContext(FoundryAppContext) as Application<Application.Options>;
 
   const [head, setHead] = useState(app?.element.get(0)?.closest("head"));
 

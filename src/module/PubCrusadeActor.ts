@@ -150,7 +150,7 @@ export class PubCrusadeActor extends Actor {
     const rollExpression = `${die} + @modifier`;
 
     const roll = new Roll(rollExpression, { modifier });
-    await roll.evaluate({ async: true });
+    await roll.evaluate();
     systemLogger.log(roll);
     const total = roll.total;
     if (total === undefined) {

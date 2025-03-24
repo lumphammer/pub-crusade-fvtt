@@ -32,7 +32,6 @@ export const ImagePickle = ({
   assertGame(game);
   const user = game.user;
   const myLevel = user ? (subject.getUserLevel(user) ?? 0) : 0;
-  // @ts-expect-error types still have DOCUMENT_PERMISSION_LEVELS
   const isOwner = myLevel >= CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER;
 
   const onClickEdit = useCallback(() => {

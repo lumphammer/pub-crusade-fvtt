@@ -56,7 +56,7 @@ export const RichTextEditor = ({
         } as any,
         initialValue,
       )
-        .then((mce) => {
+        .then((mce: any) => {
           mce.on("change", () => {
             const content = mce.getContent();
             onChange(content);
