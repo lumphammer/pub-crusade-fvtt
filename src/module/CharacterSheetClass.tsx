@@ -2,7 +2,7 @@ import { ReactApplicationV2Mixin } from "@lumphammer/shared-fvtt-bits/src/ReactA
 
 import { CharacterSheet } from "../components/CharacterSheet";
 import { reactTemplatePath, systemId } from "../constants";
-import { assertCharacterActor } from "../v10Types";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
