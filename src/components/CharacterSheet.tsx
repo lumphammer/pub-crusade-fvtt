@@ -1,9 +1,11 @@
+import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
+
 import { loveYaLikeASister } from "../constants";
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
 import { pubTheme } from "../themes/pubTheme";
-import { CharacterActor } from "../v10Types";
+import { assertCharacterActor } from "../v10Types";
 import { DrinksCounter } from "./DrinksCounter";
 import { Panel } from "./Panel";
 import { Roll } from "./Roll";
@@ -11,15 +13,15 @@ import { blackboard } from "./styles";
 import { Tabs } from "./Tabs";
 import { TopBits } from "./TopBits";
 
-interface CharacterSheetProps {
-  actor: CharacterActor;
-  foundryApplication: ActorSheet;
-}
+export const CharacterSheet = () => {
+  const application = useFoundryAppV2();
+  if (!(application instanceof foundry.applications.sheets.ActorSheetV2)) {
+    throw new Error("CharacterSheet must be used within an ActorSheetV2");
+  }
 
-export const CharacterSheet = ({
-  actor,
-  foundryApplication,
-}: CharacterSheetProps) => {
+  const actor = application.document;
+  assertCharacterActor(actor);
+
   return (
     <CSSReset
       theme={pubTheme}
@@ -70,7 +72,6 @@ export const CharacterSheet = ({
         >
           <ImagePickle
             subject={actor}
-            application={foundryApplication}
             css={{ ...absoluteCover, transform: "rotateZ(-2deg)" }}
           />
         </div>

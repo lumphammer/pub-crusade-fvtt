@@ -154,3 +154,33 @@ button.investigator-secret-hide-reveal-button {
     );
   }
 }
+
+$layers: (
+  "elements.typography",
+  "elements.forms",
+  "elements.custom",
+  "elements",
+  // "blocks.ui",
+  // "blocks.base",
+  // "blocks",
+  "applications",
+  // "layouts.full",
+  // "layouts.views",
+  // "layouts.responsive",
+   // "layouts"
+);
+
+@each $layer in $layers {
+  @layer #{$layer} {
+    .application.pub-crusade .window-content {
+      &,
+      & * {
+        all: revert-layer;
+      }
+    }
+  }
+}
+
+.application.pub-crusade .window-content {
+  flex: 1;
+}

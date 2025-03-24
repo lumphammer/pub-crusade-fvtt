@@ -1,3 +1,4 @@
+import { FoundryAppV2Context } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 import React, { Fragment, useCallback, useContext, useState } from "react";
 
 import { getTokenizer } from "../functions/getTokenizer";
@@ -18,21 +19,21 @@ const transitionTime = "0.3s";
 type ImagePickleProps = {
   subject: Actor | Item;
   // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-  application: ActorSheet;
   className?: string;
 };
 
-export const ImagePickle = ({
-  subject,
-  application,
-  className,
-}: ImagePickleProps) => {
+export const ImagePickle = ({ subject, className }: ImagePickleProps) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const theme = useContext(ThemeContext);
   assertGame(game);
   const user = game.user;
   const myLevel = user ? (subject.getUserLevel(user) ?? 0) : 0;
   const isOwner = myLevel >= CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER;
+
+  const application = useContext(FoundryAppV2Context);
+  if (application === null) {
+    throw new Error("ImagePickle must be used within a Foundry application");
+  }
 
   const onClickEdit = useCallback(() => {
     setShowOverlay(false);
