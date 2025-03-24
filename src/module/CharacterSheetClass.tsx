@@ -9,7 +9,7 @@ import { reactTemplatePath, systemId } from "../constants";
  */
 class CharacterSheetClassBase extends foundry.applications.sheets.ActorSheetV2 {
   static DEFAULT_OPTIONS = {
-    classes: [systemId, "sheet", "actor"],
+    classes: [systemId, "sheet", "actor", "pub-crusade"],
     template: reactTemplatePath,
     position: {
       width: 777,
