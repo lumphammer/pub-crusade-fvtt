@@ -21,7 +21,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f",
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
   "devDependencies": {
     "@lumphammer/investigator-fvtt-types": "^1.13.2",
     "@swc/plugin-emotion": "^7.0.3",
@@ -34,10 +34,10 @@
     "happy-dom": "^17.4.4",
     "prettier": "^3.5.3",
     "rollup-plugin-visualizer": "^5.13.1",
-    "sass-embedded": "^1.86.3",
+    "sass-embedded": "^1.87.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
-    "vite": "^6.3.2",
+    "vite": "^6.3.3",
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^3.1.2"
   },
