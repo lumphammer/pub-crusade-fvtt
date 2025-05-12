@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
-import { CharacterActor } from "../v10Types";
+import { CharacterActor } from "../character";
 import { ConditionsRow } from "./ConditionsRow";
 import { useScrollAndFocus } from "./useScrollAndFocus";
 

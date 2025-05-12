@@ -1,5 +1,5 @@
 import * as constants from "./constants";
-import { PubCrusadeActor } from "./module/PubCrusadeActor";
+import { PubCrusadeActor } from "./PubCrusadeActor";
 
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;

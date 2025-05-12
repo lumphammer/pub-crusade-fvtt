@@ -5,7 +5,7 @@ import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCove
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
 import { pubTheme } from "../themes/pubTheme";
-import { assertCharacterActor } from "../v10Types";
+import { assertCharacterActor } from "../character";
 import { DrinksCounter } from "./DrinksCounter";
 import { Panel } from "./Panel";
 import { Roll } from "./Roll";

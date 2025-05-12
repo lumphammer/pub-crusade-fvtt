@@ -4,8 +4,8 @@
 
 import { nanoid } from "nanoid";
 
-import { systemLogger } from "../copiedFromInvestigator/functions/utilities";
-import { assertCharacterActor } from "../v10Types";
+import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
+import { assertCharacterActor } from "./character";
 
 export class PubCrusadeActor extends Actor {
   setName = (name: string): Promise<this | undefined> => {
@@ -234,10 +234,4 @@ export class PubCrusadeActor extends Actor {
     assertCharacterActor(this);
     await this.update({ system: { notes } });
   };
-}
-
-declare global {
-  interface DocumentClassConfig {
-    Actor: typeof PubCrusadeActor;
-  }
 }
