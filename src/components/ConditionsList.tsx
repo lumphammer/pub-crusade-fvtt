@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 
+import { CharacterActor } from "../character";
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { Button } from "../copiedFromInvestigator/components/inputs/Button";
-import { CharacterActor } from "../v10Types";
 import { ConditionsRow } from "./ConditionsRow";
 import { useScrollAndFocus } from "./useScrollAndFocus";
 

@@ -1,6 +1,6 @@
+import { CharacterActor } from "../character";
 import { AsyncTextInput } from "../copiedFromInvestigator/components/inputs/AsyncTextInput";
 import { Toggle } from "../copiedFromInvestigator/components/inputs/Toggle";
-import { CharacterActor } from "../v10Types";
 import { Panel } from "./Panel";
 
 interface TopBitsProps {

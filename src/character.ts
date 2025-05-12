@@ -1,12 +1,12 @@
 import * as constants from "./constants";
-import { PubCrusadeActor } from "./module/PubCrusadeActor";
+import { PubCrusadeActor } from "./PubCrusadeActor";
 
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
 
 // https://foundryvtt.com/article/system-development/
 // https://foundryvtt.com/article/system-data-models/
-export const characterDataSchema = {
+export const characterSchema = {
   title: new StringField(),
   titleDie: new StringField({ initial: "d6" }),
   notes: new HTMLField(),
@@ -35,30 +35,26 @@ export const characterDataSchema = {
   ),
 };
 
-export type CharacterSchema = typeof characterDataSchema;
-
-export type CharacterSystemData =
-  foundry.data.fields.SchemaField.PersistedData<CharacterSchema>;
-
 export class CharacterModel extends foundry.abstract.TypeDataModel<
-  CharacterSchema,
-  Actor
+  typeof characterSchema,
+  PubCrusadeActor<"character">
 > {
-  static defineSchema(): CharacterSchema {
-    return characterDataSchema;
+  static defineSchema(): typeof characterSchema {
+    return characterSchema;
   }
 }
 
-export type CharacterActor = PubCrusadeActor & { system: CharacterModel };
+export type CharacterActor = PubCrusadeActor<typeof constants.character>;
 
-export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
-  // @ts-expect-error - this is okay?
+export function isCharacterActor(
+  actor: Actor.Implementation | null,
+): actor is CharacterActor {
   return actor?.type === constants.character;
 }
 
 // I'd use a class method for this but https://github.com/microsoft/TypeScript/issues/36931
 export function assertCharacterActor(
-  actor: Actor | null,
+  actor: Actor.Implementation | null,
 ): asserts actor is CharacterActor {
   if (!isCharacterActor(actor)) {
     throw new Error("not a Dictator actor");

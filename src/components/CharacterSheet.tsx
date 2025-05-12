@@ -1,11 +1,11 @@
 import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
 
+import { assertCharacterActor } from "../character";
 import { loveYaLikeASister } from "../constants";
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { CSSReset } from "../copiedFromInvestigator/components/CSSReset";
 import { ImagePickle } from "../copiedFromInvestigator/components/ImagePickle";
 import { pubTheme } from "../themes/pubTheme";
-import { assertCharacterActor } from "../v10Types";
 import { DrinksCounter } from "./DrinksCounter";
 import { Panel } from "./Panel";
 import { Roll } from "./Roll";
