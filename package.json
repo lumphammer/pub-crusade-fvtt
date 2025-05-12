@@ -31,7 +31,7 @@
     "@types/react-dom": "^19.1.3",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "fs-extra": "^11.3.0",
-    "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#9b4ca1e98815478cf738a4f174383c32a9ffcbb5",
+    "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#2d64bca10a4bf2ee165bc900b9cd074aec808f4f",
     "happy-dom": "^17.4.7",
     "prettier": "^3.5.3",
     "rollup-plugin-visualizer": "^5.13.1",
