@@ -1,8 +1,8 @@
 import { CharacterModel } from "./character";
+import * as constants from "./constants";
 import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
 import { CharacterSheetClass } from "./module/CharacterSheetClass";
 import { PubCrusadeActor } from "./PubCrusadeActor";
-import * as constants from "./constants";
 
 declare global {
   interface DataModelConfig {

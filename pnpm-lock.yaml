@@ -67,9 +67,6 @@ importers:
       fvtt-types:
         specifier: github:League-of-Foundry-Developers/foundry-vtt-types#documents-v2
         version: '@league-of-foundry-developers/foundry-vtt-types@https://codeload.github.com/League-of-Foundry-Developers/foundry-vtt-types/tar.gz/bf52c31949ef323347d043e5ed1e7ad11203c868(@pixi/assets@7.4.3(@pixi/core@7.4.3))(@pixi/compressed-textures@7.4.3(@pixi/assets@7.4.3(@pixi/core@7.4.3))(@pixi/core@7.4.3))(@pixi/constants@7.4.3)(@pixi/core@7.4.3)(@pixi/display@7.4.3(@pixi/core@7.4.3))(@pixi/graphics@7.4.3(@pixi/core@7.4.3)(@pixi/display@7.4.3(@pixi/core@7.4.3))(@pixi/sprite@7.4.3(@pixi/core@7.4.3)(@pixi/display@7.4.3(@pixi/core@7.4.3))))(@pixi/math@7.4.3)(@pixi/sprite@7.4.3(@pixi/core@7.4.3)(@pixi/display@7.4.3(@pixi/core@7.4.3)))(@pixi/ticker@7.4.3)(typescript@5.8.3)'
-      happy-dom:
-        specifier: ^17.4.7
-        version: 17.4.7
       prettier:
         specifier: ^3.5.3
         version: 3.5.3

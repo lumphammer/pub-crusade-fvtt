@@ -2,19 +2,12 @@
   "extends": "./packages/shared-fvtt-bits/dotfiles/import/tsconfig.fvtt.json",
   "include": ["src", "tasks.ts"],
 	"compilerOptions": {
-		"skipLibCheck": false,
+		"skipLibCheck": true,
 		// override types to include vite
 		"types": [
       "fvtt-types",
 			"@lumphammer/investigator-fvtt-types",
 			"vite/client"
-		],
-		"paths": {
-			// fix for when investigator-fvtt-types is symlinked in - we want it to
-			// see *our* @emotion/react not its own.
-			"@emotion/react": [
-				"./node_modules/@emotion/react"
-			]
-		},
+		]
 	}
 }

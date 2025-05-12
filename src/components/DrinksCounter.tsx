@@ -1,5 +1,5 @@
-import { loveYaLikeASister } from "../constants";
 import { CharacterActor } from "../character";
+import { loveYaLikeASister } from "../constants";
 import { Panel } from "./Panel";
 import { blackboard } from "./styles";
 

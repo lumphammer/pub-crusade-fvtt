@@ -4,8 +4,8 @@
 
 import { nanoid } from "nanoid";
 
+import { assertCharacterActor } from "./character";
 import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
-import { assertCharacterActor, CharacterModel } from "./character";
 
 export class PubCrusadeActor<
   SubType extends Actor.SubType,

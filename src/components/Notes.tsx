@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 
+import { CharacterActor } from "../character";
 import { absoluteCover } from "../copiedFromInvestigator/components/absoluteCover";
 import { RichTextEditor } from "../copiedFromInvestigator/components/inputs/RichTextEditor";
-import { CharacterActor } from "../character";
 
 interface NotesProps {
   actor: CharacterActor;

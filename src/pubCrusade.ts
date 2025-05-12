@@ -1,9 +1,4 @@
-import * as constants from "./constants";
-import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
-import { CharacterSheetClass } from "./module/CharacterSheetClass";
-import { PubCrusadeActor } from "./PubCrusadeActor";
 import processedStyles from "./sass/pub-crusade.scss?inline";
-import { CharacterModel } from "./character";
 
 // Inject CSS
 // normal css imports don't work in foundry because the html is loaded from
