@@ -6,7 +6,7 @@ const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
 
 // https://foundryvtt.com/article/system-development/
 // https://foundryvtt.com/article/system-data-models/
-export const characterDataSchema = {
+export const characterSchema = {
   title: new StringField(),
   titleDie: new StringField({ initial: "d6" }),
   notes: new HTMLField(),
@@ -35,24 +35,18 @@ export const characterDataSchema = {
   ),
 };
 
-export type CharacterSchema = typeof characterDataSchema;
-
-export type CharacterSystemData =
-  foundry.data.fields.SchemaField.PersistedData<CharacterSchema>;
-
 export class CharacterModel extends foundry.abstract.TypeDataModel<
-  CharacterSchema,
-  Actor
+  typeof characterSchema,
+  PubCrusadeActor<"character">
 > {
-  static defineSchema(): CharacterSchema {
-    return characterDataSchema;
+  static defineSchema(): typeof characterSchema {
+    return characterSchema;
   }
 }
 
-export type CharacterActor = PubCrusadeActor & { system: CharacterModel };
+export type CharacterActor = PubCrusadeActor<typeof constants.character>;
 
 export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
-  // @ts-expect-error - this is okay?
   return actor?.type === constants.character;
 }
 

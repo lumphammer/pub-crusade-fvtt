@@ -5,16 +5,18 @@
 import { nanoid } from "nanoid";
 
 import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
-import { assertCharacterActor } from "./character";
+import { assertCharacterActor, CharacterModel } from "./character";
 
-export class PubCrusadeActor extends Actor {
+export class PubCrusadeActor<
+  SubType extends Actor.SubType,
+> extends Actor<SubType> {
   setName = (name: string): Promise<this | undefined> => {
     return this.update({ name });
   };
 
   setTitle = async (title: string): Promise<void> => {
     assertCharacterActor(this);
-    await this.update({ system: { title } });
+    await this.update({ system: { title, foo: 5 } });
   };
 
   setTitleDie = async (titleDie: string): Promise<void> => {
