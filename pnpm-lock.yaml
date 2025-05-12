@@ -6,6 +6,7 @@ settings:
 
 overrides:
   fvtt-types: github:League-of-Foundry-Developers/foundry-vtt-types#documents-v2
+  '@types/earcut': 3.0.0
 
 importers:
 
@@ -1222,9 +1223,6 @@ packages:
 
   '@types/css-font-loading-module@0.0.12':
     resolution: {integrity: sha512-x2tZZYkSxXqWvTDgveSynfjq/T2HyiZHXb00j/+gy19yp70PHCizM48XFdjBCWH7eHBD0R5i/pw9yMBP/BH5uA==}
-
-  '@types/earcut@2.1.4':
-    resolution: {integrity: sha512-qp3m9PPz4gULB9MhjGID7wpo3gJ4bTGXm7ltNDsmOvsPduTeHp8wSW9YckBj3mljeOh4F0m2z/0JKAALRKbmLQ==}
 
   '@types/earcut@3.0.0':
     resolution: {integrity: sha512-k/9fOUGO39yd2sCjrbAJvGDEQvRwRnQIZlBz43roGwUZo5SHAmyVvSFyaVVZkicRVCaDXPKlbxrUcBuJoSWunQ==}
@@ -4296,7 +4294,7 @@ snapshots:
       '@pixi/color': 7.4.3
       '@pixi/constants': 7.4.3
       '@pixi/settings': 7.4.3
-      '@types/earcut': 2.1.4
+      '@types/earcut': 3.0.0
       earcut: 2.2.4
       eventemitter3: 4.0.7
       url: 0.11.4
@@ -4625,8 +4623,6 @@ snapshots:
   '@types/aria-query@5.0.4': {}
 
   '@types/css-font-loading-module@0.0.12': {}
-
-  '@types/earcut@2.1.4': {}
 
   '@types/earcut@3.0.0': {}
 

@@ -56,7 +56,8 @@
   },
   "pnpm": {
     "overrides": {
-      "fvtt-types": "$fvtt-types"
+      "fvtt-types": "$fvtt-types",
+      "@types/earcut": "3.0.0"
     }
   }
 }

@@ -7,7 +7,7 @@ import * as constants from "./constants";
 declare global {
   interface DataModelConfig {
     Actor: {
-      character: CharacterModel;
+      character: typeof CharacterModel;
     };
   }
 

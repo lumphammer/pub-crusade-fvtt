@@ -46,13 +46,15 @@ export class CharacterModel extends foundry.abstract.TypeDataModel<
 
 export type CharacterActor = PubCrusadeActor<typeof constants.character>;
 
-export function isCharacterActor(actor: Actor | null): actor is CharacterActor {
+export function isCharacterActor(
+  actor: Actor.Implementation | null,
+): actor is CharacterActor {
   return actor?.type === constants.character;
 }
 
 // I'd use a class method for this but https://github.com/microsoft/TypeScript/issues/36931
 export function assertCharacterActor(
-  actor: Actor | null,
+  actor: Actor.Implementation | null,
 ): asserts actor is CharacterActor {
   if (!isCharacterActor(actor)) {
     throw new Error("not a Dictator actor");
