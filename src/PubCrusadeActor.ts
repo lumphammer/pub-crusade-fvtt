@@ -16,7 +16,7 @@ export class PubCrusadeActor<
 
   setTitle = async (title: string): Promise<void> => {
     assertCharacterActor(this);
-    await this.update({ system: { title, foo: 5 } });
+    await this.update({ system: { title } });
   };
 
   setTitleDie = async (titleDie: string): Promise<void> => {
