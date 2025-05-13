@@ -36,7 +36,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           <select
             css={{ display: "block" }}
             value={actor.system.titleDie}
-            onChange={(e) => actor.setTitleDie(e.target.value)}
+            onChange={(e) => actor.system.setTitleDie(e.target.value)}
           >
             <option value="d4">d4</option>
             <option value="d6">d6</option>
@@ -50,7 +50,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Order
           <AsyncTextInput
             value={actor.system.order}
-            onChange={actor.setOrder}
+            onChange={actor.system.setOrder}
           />
         </label>
       </div>
@@ -59,7 +59,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Order Quest
           <AsyncTextInput
             value={actor.system.orderQuest.name}
-            onChange={actor.setOrderQuestName}
+            onChange={actor.system.setOrderQuestName}
           />
         </label>
       </div>
@@ -68,7 +68,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Completed?
           <Toggle
             checked={actor.system.orderQuest.completed}
-            onChange={actor.setOrderQuestCompleted}
+            onChange={actor.system.setOrderQuestCompleted}
           />
         </label>
       </div>
@@ -77,7 +77,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Tenet
           <AsyncTextInput
             value={actor.system.tenet}
-            onChange={actor.setTenet}
+            onChange={actor.system.setTenet}
           />
         </label>
       </div>
@@ -86,7 +86,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Personal Quest
           <AsyncTextInput
             value={actor.system.personalQuest.name}
-            onChange={actor.setPersonalQuestName}
+            onChange={actor.system.setPersonalQuestName}
           />
         </label>
       </div>
@@ -95,7 +95,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Completed?
           <Toggle
             checked={actor.system.personalQuest.completed}
-            onChange={actor.setPersonalQuestCompleted}
+            onChange={actor.system.setPersonalQuestCompleted}
           />
         </label>
       </div>

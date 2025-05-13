@@ -2,6 +2,7 @@ import * as constants from "./constants";
 import { PubCrusadeActor } from "./PubCrusadeActor";
 
 import UpdateData = foundry.data.fields.SchemaField.UpdateData;
+import { nanoid } from "nanoid";
 
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
@@ -73,5 +74,128 @@ export class CharacterModel extends foundry.abstract.TypeDataModel<
     assertCharacterActor(this.parent);
     // @ts-expect-error this should error on foo
     await this.parent.update({ system: { title, foo: 5 } });
+  };
+
+  setTitleDie = async (titleDie: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({ system: { titleDie } });
+  };
+
+  setOrder = async (order: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({ system: { order } });
+  };
+
+  setTenet = async (tenet: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({ system: { tenet } });
+  };
+
+  setOrderQuestName = async (orderQuestName: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({
+      system: {
+        orderQuest: { ...this.orderQuest, name: orderQuestName },
+      },
+    });
+  };
+
+  addDrink = async (): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({
+      system: {
+        drinks: [...this.drinks, { id: nanoid(), what: "", where: "" }],
+      },
+    });
+  };
+
+  setDrinkWhat = async (id: string, what: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    const index = this.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        drinks: [
+          ...this.drinks.slice(0, index),
+          { ...this.drinks[index], what },
+          ...this.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setDrinkWhere = async (id: string, where: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    const index = this.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        drinks: [
+          ...this.drinks.slice(0, index),
+          { ...this.drinks[index], where },
+          ...this.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  deleteDrink = async (id: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    const index = this.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        drinks: [
+          ...this.drinks.slice(0, index),
+          ...this.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setOrderQuestCompleted = async (
+    orderQuestCompleted: boolean,
+  ): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({
+      system: {
+        orderQuest: {
+          ...this.orderQuest,
+          completed: orderQuestCompleted,
+        },
+      },
+    });
+  };
+
+  setPersonalQuestName = async (personalQuestName: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({
+      system: {
+        personalQuest: {
+          ...this.personalQuest,
+          name: personalQuestName,
+        },
+      },
+    });
+  };
+
+  setPersonalQuestCompleted = async (
+    personalQuestCompleted: boolean,
+  ): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({
+      system: {
+        personalQuest: {
+          ...this.personalQuest,
+          completed: personalQuestCompleted,
+        },
+      },
+    });
   };
 }
