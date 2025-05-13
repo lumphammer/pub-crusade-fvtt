@@ -25,7 +25,7 @@ export const TopBits = ({ actor, className }: TopBitsProps) => {
           Title
           <AsyncTextInput
             value={actor.system.title}
-            onChange={actor.setTitle}
+            onChange={actor.system.setTitle}
             index={0}
           />
         </label>

@@ -1,6 +1,8 @@
 import * as constants from "./constants";
 import { PubCrusadeActor } from "./PubCrusadeActor";
 
+import UpdateData = foundry.data.fields.SchemaField.UpdateData;
+
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
 
@@ -35,16 +37,14 @@ export const characterSchema = {
   ),
 };
 
-export class CharacterModel extends foundry.abstract.TypeDataModel<
-  typeof characterSchema,
-  PubCrusadeActor<"character">
-> {
-  static defineSchema(): typeof characterSchema {
-    return characterSchema;
-  }
+interface CharacterActorUpdateData extends Exclude<Actor.UpdateData, "system"> {
+  system: UpdateData<typeof characterSchema>;
 }
 
-export type CharacterActor = PubCrusadeActor<typeof constants.character>;
+export interface CharacterActor
+  extends PubCrusadeActor<typeof constants.character> {
+  update: (data: CharacterActorUpdateData) => Promise<this>;
+}
 
 export function isCharacterActor(
   actor: Actor.Implementation | null,
@@ -59,4 +59,19 @@ export function assertCharacterActor(
   if (!isCharacterActor(actor)) {
     throw new Error("not a Dictator actor");
   }
+}
+
+export class CharacterModel extends foundry.abstract.TypeDataModel<
+  typeof characterSchema,
+  PubCrusadeActor<"character">
+> {
+  static defineSchema(): typeof characterSchema {
+    return characterSchema;
+  }
+
+  setTitle = async (title: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    // @ts-expect-error this should error on foo
+    await this.parent.update({ system: { title, foo: 5 } });
+  };
 }

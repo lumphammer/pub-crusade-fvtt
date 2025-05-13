@@ -7,16 +7,21 @@ import { nanoid } from "nanoid";
 import { assertCharacterActor } from "./character";
 import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
 
+// just a type test
+async function _setOrder(
+  actor: Actor.Implementation,
+  order: string,
+): Promise<void> {
+  assertCharacterActor(actor);
+  // @ts-expect-error this should error on foo
+  await actor.update({ system: { order, foo: 5 } });
+}
+
 export class PubCrusadeActor<
   SubType extends Actor.SubType,
 > extends Actor<SubType> {
   setName = (name: string): Promise<this | undefined> => {
     return this.update({ name });
-  };
-
-  setTitle = async (title: string): Promise<void> => {
-    assertCharacterActor(this);
-    await this.update({ system: { title } });
   };
 
   setTitleDie = async (titleDie: string): Promise<void> => {
