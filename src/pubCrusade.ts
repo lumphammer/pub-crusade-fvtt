@@ -1,3 +1,5 @@
+import "./fvtt-configuration";
+
 import processedStyles from "./sass/pub-crusade.scss?inline";
 
 // Inject CSS
