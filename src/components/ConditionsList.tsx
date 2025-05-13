@@ -15,7 +15,7 @@ export const ConditionsList = ({ actor, className }: ConditionsListProps) => {
   const { scrollerRef, triggerScroll } = useScrollAndFocus();
 
   const handleClickAdd = useCallback(async () => {
-    await actor.addCondition();
+    await actor.system.addCondition();
     triggerScroll();
   }, [actor, triggerScroll]);
 

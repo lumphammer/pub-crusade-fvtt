@@ -2,10 +2,7 @@
 // that seem to come out here
 /* eslint "@typescript-eslint/explicit-function-return-type": "error" */
 
-import { nanoid } from "nanoid";
-
 import { assertCharacterActor } from "./character";
-import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
 
 // just a type test
 async function _setOrder(
@@ -22,100 +19,5 @@ export class PubCrusadeActor<
 > extends Actor<SubType> {
   setName = (name: string): Promise<this | undefined> => {
     return this.update({ name });
-  };
-
-  roll = async (
-    modifier: number,
-    useTitleDie: boolean,
-    lowOrHigh: "high" | "low",
-  ): Promise<void> => {
-    assertCharacterActor(this);
-    const die = useTitleDie ? this.system.titleDie : "d8";
-    const rollExpression = `${die} + @modifier`;
-
-    const roll = new Roll(rollExpression, { modifier });
-    await roll.evaluate();
-    systemLogger.log(roll);
-    const total = roll.total;
-    if (total === undefined) {
-      throw new Error("total is undefined");
-    }
-    const isSuccess =
-      lowOrHigh === "low"
-        ? total < this.system.drinks.length ||
-          roll.dice[0].results[0].result === 1
-        : total > this.system.drinks.length ||
-          roll.dice[0].results[0].result === 8;
-    const isComplicated = total === this.system.drinks.length;
-
-    const message = isComplicated
-      ? "<div class='brilliant-catastrophe'>Brilliant Catastrophe</div>"
-      : isSuccess
-        ? "<div class='success'>Success</div>"
-        : "<div class='failure'>Failure</div>";
-
-    await roll.toMessage({
-      speaker: ChatMessage.getSpeaker({
-        actor: this,
-      }),
-      content: `
-        <div class="pub-crusade-roll">
-          <div class="description">
-            Tries to roll <span class="low-or-high">${lowOrHigh}</span>
-            after <span class="drink-count">${this.system.drinks.length}</span> drinks.
-          </div>
-          <div class="formula">
-            ${roll.formula} = <span class="total">${roll.total}</span>
-          </div>
-        ${message}
-      `,
-    });
-  };
-
-  addCondition = async (): Promise<void> => {
-    assertCharacterActor(this);
-    await this.update({
-      system: {
-        conditions: [...this.system.conditions, { id: nanoid() }],
-      },
-    });
-  };
-
-  setCondition = async (id: string, name: string): Promise<void> => {
-    assertCharacterActor(this);
-    const index = this.system.conditions.findIndex(({ id: i }) => i === id);
-    if (index === -1) {
-      throw new Error("invalid drink id");
-    }
-    await this.update({
-      system: {
-        conditions: [
-          ...this.system.conditions.slice(0, index),
-          { ...this.system.conditions[index], name },
-          ...this.system.conditions.slice(index + 1),
-        ],
-      },
-    });
-  };
-
-  deleteCondition = async (id: string): Promise<void> => {
-    assertCharacterActor(this);
-    const index = this.system.conditions.findIndex(({ id: i }) => i === id);
-    if (index === -1) {
-      throw new Error("invalid drink id");
-    }
-    await this.update({
-      system: {
-        conditions: [
-          ...this.system.conditions.slice(0, index),
-          ...this.system.conditions.slice(index + 1),
-        ],
-      },
-    });
-  };
-
-  setNotes = async (notes: string): Promise<void> => {
-    assertCharacterActor(this);
-    await this.update({ system: { notes } });
   };
 }

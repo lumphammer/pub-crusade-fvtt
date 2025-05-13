@@ -4,6 +4,8 @@ import { PubCrusadeActor } from "./PubCrusadeActor";
 import UpdateData = foundry.data.fields.SchemaField.UpdateData;
 import { nanoid } from "nanoid";
 
+import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
+
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
   foundry.data.fields;
 
@@ -197,5 +199,98 @@ export class CharacterModel extends foundry.abstract.TypeDataModel<
         },
       },
     });
+  };
+
+  roll = async (
+    modifier: number,
+    useTitleDie: boolean,
+    lowOrHigh: "high" | "low",
+  ): Promise<void> => {
+    assertCharacterActor(this.parent);
+    const die = useTitleDie ? this.titleDie : "d8";
+    const rollExpression = `${die} + @modifier`;
+
+    const roll = new Roll(rollExpression, { modifier });
+    await roll.evaluate();
+    systemLogger.log(roll);
+    const total = roll.total;
+    if (total === undefined) {
+      throw new Error("total is undefined");
+    }
+    const isSuccess =
+      lowOrHigh === "low"
+        ? total < this.drinks.length || roll.dice[0].results[0].result === 1
+        : total > this.drinks.length || roll.dice[0].results[0].result === 8;
+    const isComplicated = total === this.drinks.length;
+
+    const message = isComplicated
+      ? "<div class='brilliant-catastrophe'>Brilliant Catastrophe</div>"
+      : isSuccess
+        ? "<div class='success'>Success</div>"
+        : "<div class='failure'>Failure</div>";
+
+    await roll.toMessage({
+      speaker: ChatMessage.getSpeaker({
+        actor: this.parent,
+      }),
+      content: `
+        <div class="pub-crusade-roll">
+          <div class="description">
+            Tries to roll <span class="low-or-high">${lowOrHigh}</span>
+            after <span class="drink-count">${this.drinks.length}</span> drinks.
+          </div>
+          <div class="formula">
+            ${roll.formula} = <span class="total">${roll.total}</span>
+          </div>
+        ${message}
+      `,
+    });
+  };
+
+  addCondition = async (): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({
+      system: {
+        conditions: [...this.conditions, { id: nanoid() }],
+      },
+    });
+  };
+
+  setCondition = async (id: string, name: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    const index = this.conditions.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        conditions: [
+          ...this.conditions.slice(0, index),
+          { ...this.conditions[index], name },
+          ...this.conditions.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  deleteCondition = async (id: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    const index = this.conditions.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        conditions: [
+          ...this.conditions.slice(0, index),
+          ...this.conditions.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setNotes = async (notes: string): Promise<void> => {
+    assertCharacterActor(this.parent);
+    await this.parent.update({ system: { notes } });
   };
 }
