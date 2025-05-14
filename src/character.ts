@@ -1,4 +1,7 @@
+import { nanoid } from "nanoid";
+
 import * as constants from "./constants";
+import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
 import { PubCrusadeActor } from "./PubCrusadeActor";
 
 const { HTMLField, StringField, SchemaField, BooleanField, ArrayField } =
@@ -35,15 +38,6 @@ export const characterSchema = {
   ),
 };
 
-export class CharacterModel extends foundry.abstract.TypeDataModel<
-  typeof characterSchema,
-  PubCrusadeActor<"character">
-> {
-  static defineSchema(): typeof characterSchema {
-    return characterSchema;
-  }
-}
-
 export type CharacterActor = PubCrusadeActor<typeof constants.character>;
 
 export function isCharacterActor(
@@ -59,4 +53,221 @@ export function assertCharacterActor(
   if (!isCharacterActor(actor)) {
     throw new Error("not a Dictator actor");
   }
+}
+
+export class CharacterModel extends foundry.abstract.TypeDataModel<
+  typeof characterSchema,
+  PubCrusadeActor<"character">
+> {
+  static defineSchema(): typeof characterSchema {
+    return characterSchema;
+  }
+
+  setName = (name: string) => {
+    return this.parent.update({ name });
+  };
+
+  setTitle = async (title: string) => {
+    await this.parent.update({ system: { title } });
+  };
+
+  setTitleDie = async (titleDie: string): Promise<void> => {
+    await this.parent.update({ system: { titleDie } });
+  };
+
+  setOrder = async (order: string): Promise<void> => {
+    await this.parent.update({ system: { order } });
+  };
+
+  setTenet = async (tenet: string): Promise<void> => {
+    await this.parent.update({ system: { tenet } });
+  };
+
+  setOrderQuestName = async (orderQuestName: string): Promise<void> => {
+    await this.parent.update({
+      system: {
+        orderQuest: { ...this.orderQuest, name: orderQuestName },
+      },
+    });
+  };
+
+  addDrink = async (): Promise<void> => {
+    await this.parent.update({
+      system: {
+        drinks: [...this.drinks, { id: nanoid(), what: "", where: "" }],
+      },
+    });
+  };
+
+  setDrinkWhat = async (id: string, what: string): Promise<void> => {
+    const index = this.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        drinks: [
+          ...this.drinks.slice(0, index),
+          { ...this.drinks[index], what },
+          ...this.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setDrinkWhere = async (id: string, where: string): Promise<void> => {
+    const index = this.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        drinks: [
+          ...this.drinks.slice(0, index),
+          { ...this.drinks[index], where },
+          ...this.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  deleteDrink = async (id: string): Promise<void> => {
+    const index = this.drinks.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        drinks: [
+          ...this.drinks.slice(0, index),
+          ...this.drinks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setOrderQuestCompleted = async (
+    orderQuestCompleted: boolean,
+  ): Promise<void> => {
+    await this.parent.update({
+      system: {
+        orderQuest: {
+          ...this.orderQuest,
+          completed: orderQuestCompleted,
+        },
+      },
+    });
+  };
+
+  setPersonalQuestName = async (personalQuestName: string): Promise<void> => {
+    await this.parent.update({
+      system: {
+        personalQuest: {
+          ...this.personalQuest,
+          name: personalQuestName,
+        },
+      },
+    });
+  };
+
+  setPersonalQuestCompleted = async (
+    personalQuestCompleted: boolean,
+  ): Promise<void> => {
+    await this.parent.update({
+      system: {
+        personalQuest: {
+          ...this.personalQuest,
+          completed: personalQuestCompleted,
+        },
+      },
+    });
+  };
+
+  roll = async (
+    modifier: number,
+    useTitleDie: boolean,
+    lowOrHigh: "high" | "low",
+  ): Promise<void> => {
+    const die = useTitleDie ? this.titleDie : "d8";
+    const rollExpression = `${die} + @modifier`;
+
+    const roll = new Roll(rollExpression, { modifier });
+    await roll.evaluate();
+    systemLogger.log(roll);
+    const total = roll.total;
+    if (total === undefined) {
+      throw new Error("total is undefined");
+    }
+    const isSuccess =
+      lowOrHigh === "low"
+        ? total < this.drinks.length || roll.dice[0].results[0].result === 1
+        : total > this.drinks.length || roll.dice[0].results[0].result === 8;
+    const isComplicated = total === this.drinks.length;
+
+    const message = isComplicated
+      ? "<div class='brilliant-catastrophe'>Brilliant Catastrophe</div>"
+      : isSuccess
+        ? "<div class='success'>Success</div>"
+        : "<div class='failure'>Failure</div>";
+
+    await roll.toMessage({
+      speaker: ChatMessage.getSpeaker({
+        actor: this.parent,
+      }),
+      content: `
+        <div class="pub-crusade-roll">
+          <div class="description">
+            Tries to roll <span class="low-or-high">${lowOrHigh}</span>
+            after <span class="drink-count">${this.drinks.length}</span> drinks.
+          </div>
+          <div class="formula">
+            ${roll.formula} = <span class="total">${roll.total}</span>
+          </div>
+        ${message}
+      `,
+    });
+  };
+
+  addCondition = async (): Promise<void> => {
+    await this.parent.update({
+      system: {
+        conditions: [...this.conditions, { id: nanoid() }],
+      },
+    });
+  };
+
+  setCondition = async (id: string, name: string): Promise<void> => {
+    const index = this.conditions.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        conditions: [
+          ...this.conditions.slice(0, index),
+          { ...this.conditions[index], name },
+          ...this.conditions.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  deleteCondition = async (id: string): Promise<void> => {
+    const index = this.conditions.findIndex(({ id: i }) => i === id);
+    if (index === -1) {
+      throw new Error("invalid drink id");
+    }
+    await this.parent.update({
+      system: {
+        conditions: [
+          ...this.conditions.slice(0, index),
+          ...this.conditions.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  setNotes = async (notes: string): Promise<void> => {
+    await this.parent.update({ system: { notes } });
+  };
 }

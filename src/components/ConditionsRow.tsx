@@ -18,7 +18,7 @@ export const ConditionsRow = ({ actor, id }: ConditionsRowProps) => {
 
   const handleChange = useCallback(
     (what: string) => {
-      void actor.setCondition(id, what);
+      void actor.system.setCondition(id, what);
     },
     [actor, id],
   );
@@ -31,7 +31,7 @@ export const ConditionsRow = ({ actor, id }: ConditionsRowProps) => {
       confirmIconClass: "fa-trash",
     });
     if (yes) {
-      void actor.deleteCondition(id);
+      void actor.system.deleteCondition(id);
     }
   }, [actor, condition.name, id]);
 

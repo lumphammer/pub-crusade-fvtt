@@ -17,7 +17,7 @@ export const DrinksList = ({ actor, className }: DrinksListProps) => {
   });
 
   const handleClickAdd = useCallback(async () => {
-    await actor.addDrink();
+    await actor.system.addDrink();
     triggerScroll();
   }, [actor, triggerScroll]);
 
