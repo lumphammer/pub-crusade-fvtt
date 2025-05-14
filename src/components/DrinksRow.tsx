@@ -18,14 +18,14 @@ export const DrinksRow = ({ actor, id }: DrinksRowProps) => {
 
   const handleChangeWhat = useCallback(
     (what: string) => {
-      void actor.setDrinkWhat(id, what);
+      void actor.system.setDrinkWhat(id, what);
     },
     [actor, id],
   );
 
   const handleChangeWhere = useCallback(
     (where: string) => {
-      void actor.setDrinkWhere(id, where);
+      void actor.system.setDrinkWhere(id, where);
     },
     [actor, id],
   );
@@ -38,7 +38,7 @@ export const DrinksRow = ({ actor, id }: DrinksRowProps) => {
       confirmIconClass: "fa-trash",
     });
     if (yes) {
-      void actor.deleteDrink(id);
+      void actor.system.deleteDrink(id);
     }
   }, [actor, drink.what, drink.where, id]);
 

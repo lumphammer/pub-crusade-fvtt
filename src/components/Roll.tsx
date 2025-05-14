@@ -32,7 +32,7 @@ export const Roll = ({
 
   const handleClickRoll = React.useCallback(() => {
     console.log("roll");
-    void actor.roll(modifier, useTitleDie, lowOrHigh);
+    void actor.system.roll(modifier, useTitleDie, lowOrHigh);
     setModifier(0);
     setUseTitleDie(false);
   }, [actor, lowOrHigh, modifier, useTitleDie]);

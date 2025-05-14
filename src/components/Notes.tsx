@@ -14,7 +14,7 @@ export const Notes = ({ actor, className }: NotesProps) => {
   const temp = useRef(actor.system.notes);
 
   const handleSave = async () => {
-    await actor.setNotes(temp.current);
+    await actor.system.setNotes(temp.current);
     setEditMode(false);
   };
 
