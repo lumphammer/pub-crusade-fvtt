@@ -35,15 +35,6 @@ export const characterSchema = {
   ),
 };
 
-export class CharacterModel extends foundry.abstract.TypeDataModel<
-  typeof characterSchema,
-  PubCrusadeActor<"character">
-> {
-  static defineSchema(): typeof characterSchema {
-    return characterSchema;
-  }
-}
-
 export type CharacterActor = PubCrusadeActor<typeof constants.character>;
 
 export function isCharacterActor(
@@ -59,4 +50,25 @@ export function assertCharacterActor(
   if (!isCharacterActor(actor)) {
     throw new Error("not a Dictator actor");
   }
+}
+
+export class CharacterModel extends foundry.abstract.TypeDataModel<
+  typeof characterSchema,
+  PubCrusadeActor<"character">
+> {
+  static defineSchema(): typeof characterSchema {
+    return characterSchema;
+  }
+
+  setName = (name: string) => {
+    return this.parent.update({ name });
+  };
+
+  setTitle = async (title: string) => {
+    await this.parent.update({
+      system: {
+        title,
+      },
+    });
+  };
 }
