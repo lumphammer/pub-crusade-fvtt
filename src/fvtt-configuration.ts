@@ -4,21 +4,15 @@ import { systemLogger } from "./copiedFromInvestigator/functions/utilities";
 import { CharacterSheetClass } from "./module/CharacterSheetClass";
 import { PubCrusadeActor } from "./PubCrusadeActor";
 
-declare global {
+declare module "fvtt-types/configuration" {
   interface DataModelConfig {
     Actor: {
       character: typeof CharacterModel;
     };
   }
-
+  // https://github.com/League-of-Foundry-Developers/foundry-vtt-types/releases/tag/v12.331.4-beta
   interface DocumentClassConfig {
-    Actor: typeof PubCrusadeActor;
-  }
-}
-
-declare module "fvtt-types/configuration" {
-  interface DocumentClassConfig {
-    Actor: typeof PubCrusadeActor<Actor.SubType>; // Make sure to provide your generics here.
+    Actor: typeof PubCrusadeActor<Actor.SubType>;
   }
   interface ConfiguredActor<SubType extends Actor.SubType> {
     document: PubCrusadeActor<SubType>;
@@ -41,3 +35,7 @@ Hooks.once("init", () => {
     types: [constants.character],
   });
 });
+
+function _foo(actor: Actor.Implementation) {
+  void actor.setName("");
+}
