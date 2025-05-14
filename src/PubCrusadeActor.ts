@@ -16,7 +16,8 @@ export class PubCrusadeActor<
 
   setTitle = async (title: string): Promise<void> => {
     assertCharacterActor(this);
-    await this.update({ system: { title } });
+    // @ts-expect-error foo should be an error
+    await this.update({ system: { title, foo: 5 } });
   };
 
   setTitleDie = async (titleDie: string): Promise<void> => {
