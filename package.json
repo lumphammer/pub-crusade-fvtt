@@ -33,7 +33,7 @@
     "fs-extra": "^11.3.0",
     "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#main",
     "prettier": "^3.5.3",
-    "rollup-plugin-visualizer": "^5.13.1",
+    "rollup-plugin-visualizer": "^6.0.0",
     "sass-embedded": "^1.89.0",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
