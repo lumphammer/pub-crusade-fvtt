@@ -29,7 +29,6 @@ Hooks.once("init", () => {
   CONFIG.Actor.documentClass = PubCrusadeActor;
 
   // sheets
-  Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet(constants.systemId, CharacterSheetClass, {
     makeDefault: true,
     types: [constants.character],

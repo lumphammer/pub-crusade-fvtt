@@ -6,6 +6,8 @@ import { assertGame } from "../functions/utilities";
 import { ThemeContext } from "../themes/ThemeContext";
 import { ImagePickerLink } from "./ImagePickerLink";
 
+import ImagePopout = foundry.applications.apps.ImagePopout;
+
 const cover = {
   position: "absolute",
   top: 0,
@@ -66,11 +68,14 @@ export const ImagePickle = ({ subject, className }: ImagePickleProps) => {
   }, [application.position.left, application.position.top, subject]);
 
   const showImage = useCallback(() => {
-    const ip = new ImagePopout(subject.img ?? "", {
-      title: subject.img,
+    const ip = new ImagePopout({
+      src: subject.img ?? "",
+      window: {
+        title: subject.img,
+      },
       shareable: true,
     } as any);
-    ip.render(true);
+    void ip.render({ force: true });
   }, [subject.img]);
 
   const onClickShow = useCallback(() => {
