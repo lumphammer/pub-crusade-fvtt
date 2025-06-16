@@ -64,7 +64,8 @@
     "overrides": {
       "fvtt-types": "$fvtt-types",
       "@types/earcut": "3.0.0",
-      "vite": "$vite"
+      "vite": "$vite",
+      "@types/react": "$@types/react"
     }
   }
 }

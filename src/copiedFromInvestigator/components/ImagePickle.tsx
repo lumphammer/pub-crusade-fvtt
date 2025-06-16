@@ -7,6 +7,7 @@ import { ThemeContext } from "../themes/ThemeContext";
 import { ImagePickerLink } from "./ImagePickerLink";
 
 import ImagePopout = foundry.applications.apps.ImagePopout;
+import FilePicker = foundry.applications.apps.FilePicker;
 
 const cover = {
   position: "absolute",
@@ -47,7 +48,7 @@ export const ImagePickle = ({ subject, className }: ImagePickleProps) => {
     if (tokenizerIsActive && tokenizerApi !== undefined && subjectIsActor) {
       tokenizerApi.tokenizeActor(subject);
     } else {
-      // You can also launch the filepicker with
+      // You can also launch the file picker with
       // `application._onEditImage(event)` but 1. we don't care about event
       // objects for the most part, and 2. that way is tightly coupled to the
       // Foundry AppV1 model of imperative updates and does stuff like trying to
@@ -60,8 +61,10 @@ export const ImagePickle = ({ subject, className }: ImagePickleProps) => {
             img: path,
           });
         },
-        top: (application.position.top ?? 0) + 40,
-        left: (application.position.left ?? 0) + 10,
+        position: {
+          top: (application.position.top ?? 0) + 40,
+          left: (application.position.left ?? 0) + 10,
+        },
       });
       return fp.browse(subject.img ?? "");
     }
