@@ -17,6 +17,18 @@ declare module "fvtt-types/configuration" {
   interface ConfiguredActor<SubType extends Actor.SubType> {
     document: PubCrusadeActor<SubType>;
   }
+  namespace Hooks {
+    interface HookConfig {
+      "PopOut:popout": (
+        poppedApp: foundry.applications.api.ApplicationV2,
+        newWindow: Window,
+      ) => void;
+      "PopOut:dialog": (
+        dialoggedApp: foundry.applications.api.ApplicationV2,
+        info: PopOut.DialogHookInfo,
+      ) => void;
+    }
+  }
 }
 
 Hooks.once("init", () => {
