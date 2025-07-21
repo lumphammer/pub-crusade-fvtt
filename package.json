@@ -37,7 +37,7 @@
     "sass-embedded": "1.89.2",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "vite": "^7.0.4",
+    "vite": "^7.0.5",
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^3.2.4"
   },
@@ -47,7 +47,7 @@
     "@emotion/react": "^11.14.0",
     "@lumphammer/shared-fvtt-bits": "workspace:^",
     "@radix-ui/react-switch": "^1.2.5",
-    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
     "eslint": "8.57.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-n": "^17.21.0",
