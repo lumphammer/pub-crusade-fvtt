@@ -1,4 +1,5 @@
-import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
+import { FoundryAppContext } from "@lumphammer/shared-fvtt-bits/src/FoundryAppContext";
+import { useContext } from "react";
 
 import { assertCharacterActor } from "../character";
 import { loveYaLikeASister } from "../constants";
@@ -14,7 +15,7 @@ import { Tabs } from "./Tabs";
 import { TopBits } from "./TopBits";
 
 export const CharacterSheet = () => {
-  const application = useFoundryAppV2();
+  const application = useContext(FoundryAppContext);
   if (!(application instanceof foundry.applications.sheets.ActorSheetV2)) {
     throw new Error("CharacterSheet must be used within an ActorSheetV2");
   }

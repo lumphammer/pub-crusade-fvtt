@@ -19,6 +19,7 @@ declare module "fvtt-types/configuration" {
   }
   namespace Hooks {
     interface HookConfig {
+      foo: () => void;
       "PopOut:popout": (
         poppedApp: foundry.applications.api.ApplicationV2,
         newWindow: Window,
@@ -41,12 +42,12 @@ Hooks.once("init", () => {
   CONFIG.Actor.documentClass = PubCrusadeActor;
 
   // sheets
-  Actors.registerSheet(constants.systemId, CharacterSheetClass, {
-    makeDefault: true,
-    types: [constants.character],
-  });
+  foundry.documents.collections.Actors.registerSheet(
+    constants.systemId,
+    CharacterSheetClass,
+    {
+      makeDefault: true,
+      types: [constants.character],
+    },
+  );
 });
-
-function _foo(actor: Actor.Implementation) {
-  void actor.setName("");
-}

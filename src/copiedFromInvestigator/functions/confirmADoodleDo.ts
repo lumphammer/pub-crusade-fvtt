@@ -28,7 +28,7 @@ export const confirmADoodleDo = ({
     const onCancel = () => {
       resolve(false);
     };
-    const d = new Dialog({
+    const d = new foundry.appv1.api.Dialog({
       title: "Confirm",
       content: `<p>${message}</p>`,
       buttons: {

@@ -13,7 +13,10 @@ type RichTextEditorProps = {
  * This doesn't seem to be made directly available so we need to use TS
  * shenanigans to extract it.
  */
-type TinyMceEditor = Awaited<ReturnType<typeof TextEditor.create>>;
+type TinyMceEditor = Awaited<
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
+  ReturnType<typeof foundry.applications.ux.TextEditor.implementation.create>
+>;
 
 /**
  * ham-fisted attempt to cram Foundry's TextEditor, which is itself a wrapper
@@ -48,14 +51,15 @@ export const RichTextEditor = ({
   useEffect(() => {
     let tinyMceEditor: TinyMceEditor | null = null;
     if (ref.current) {
-      void TextEditor.create(
-        {
-          target: ref.current,
-          save_onsavecallback: myOnSave,
-          height: "100%",
-        } as any,
-        initialValue,
-      )
+      void foundry.applications.ux.TextEditor.implementation
+        .create(
+          {
+            target: ref.current,
+            save_onsavecallback: myOnSave,
+            height: "100%",
+          } as any,
+          initialValue,
+        )
         .then((mce: any) => {
           mce.on("change", () => {
             const content = mce.getContent();

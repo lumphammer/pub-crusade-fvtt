@@ -1,16 +1,10 @@
 {
   "extends": "./packages/shared-fvtt-bits/dotfiles/import/tsconfig.fvtt.json",
-	// when we have skipLibCheck on, block anything that might cause vitest types
-	// to come in because there's some chaops in the happy-dom types
-	// "exclude": ["**/*.test.ts", "vite.config.ts"],
+	"exclude": ["packages"],
+	"references": [
+		{
+			"path": "./packages/shared-fvtt-bits"
+		}
+	]
 
-	"compilerOptions": {
-		// NB: if we get any issues related to fvtt-types, disable this to possibly
-		// unmask underlying causes
-		"skipLibCheck": true,
-		// if skipLibCheck is off, you may want to uncomment this to quash some
-		// issues with node-lru-cache
-		// https://github.com/isaacs/node-lru-cache/issues/348#issuecomment-2296786407
-		//"strictBuiltinIteratorReturn": false
-	}
 }

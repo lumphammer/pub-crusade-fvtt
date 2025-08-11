@@ -1,4 +1,4 @@
-import { FoundryAppV2Context } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
+import { FoundryAppContext } from "@lumphammer/shared-fvtt-bits/src/FoundryAppContext";
 import React, { Fragment, useCallback, useContext, useState } from "react";
 
 import { getTokenizer } from "../functions/getTokenizer";
@@ -21,7 +21,6 @@ const transitionTime = "0.3s";
 
 type ImagePickleProps = {
   subject: Actor | Item;
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   className?: string;
 };
 
@@ -33,7 +32,7 @@ export const ImagePickle = ({ subject, className }: ImagePickleProps) => {
   const myLevel = user ? (subject.getUserLevel(user) ?? 0) : 0;
   const isOwner = myLevel >= CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER;
 
-  const application = useContext(FoundryAppV2Context);
+  const application = useContext(FoundryAppContext);
   if (application === null) {
     throw new Error("ImagePickle must be used within a Foundry application");
   }

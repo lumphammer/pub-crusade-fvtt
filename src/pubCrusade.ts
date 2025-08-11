@@ -1,4 +1,4 @@
-import "./fvtt-configuration";
+// import "./fvtt-configuration";
 
 import processedStyles from "./sass/pub-crusade.scss?inline";
 

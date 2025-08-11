@@ -1,8 +1,15 @@
 import createCache from "@emotion/cache";
 import { css } from "@emotion/css";
 import { CacheProvider as EmotionCacheProvider, Global } from "@emotion/react";
-import { useFoundryAppV2 } from "@lumphammer/shared-fvtt-bits/src/FoundryAppV2Context";
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { FoundryAppContext } from "@lumphammer/shared-fvtt-bits/src/FoundryAppContext";
+import {
+  ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import { ThemeContext } from "../themes/ThemeContext";
 import { ThemeV1 } from "../themes/types";
@@ -40,7 +47,10 @@ export const CSSReset = ({
     }
   }, [noStyleAppWindow, theme.appWindowStyle]);
 
-  const app = useFoundryAppV2();
+  const app = useContext(FoundryAppContext);
+  if (app === null) {
+    throw new Error("CSSReset must be used within a FoundryAppContext");
+  }
 
   const [head, setHead] = useState(app.element.closest("head"));
 
