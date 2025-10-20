@@ -2,7 +2,8 @@ import coreConfig from "@lumphammer/shared-fvtt-bits/dotfiles/import/eslint.core
 import reactConfig from "@lumphammer/shared-fvtt-bits/dotfiles/import/eslint.react.config.js";
 import { defineConfig } from "eslint/config";
 
-export default defineConfig([
+/** @type {import('eslint').Linter.Config[]} */
+const config = defineConfig([
   coreConfig,
   reactConfig,
 
@@ -28,3 +29,5 @@ export default defineConfig([
     },
   },
 ]);
+
+export default config;
