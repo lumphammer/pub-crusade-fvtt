@@ -17,6 +17,7 @@ export const useScrollAndFocus = ({
 
   useEffect(() => {
     if (shouldScroll) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShouldScroll(false);
       // find the last input element and scroll it into view
       const inputs = scrollerRef.current?.querySelectorAll(selector);

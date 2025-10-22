@@ -47,7 +47,7 @@ export const TabContainer = ({
 
   const theme = useContext(ThemeContext);
 
-  const radioGroup = useMemo(nanoid, []);
+  const radioGroup = useMemo(() => nanoid(), []);
 
   return (
     <div
