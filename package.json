@@ -39,7 +39,7 @@
     "typescript": "^5.9.3",
     "vite": "^7.1.12",
     "vite-plugin-svgr": "^4.5.0",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.3"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
