@@ -27,8 +27,8 @@
     "@lumphammer/investigator-fvtt-types": "^1.13.2",
     "@swc/plugin-emotion": "^7.0.3",
     "@types/fs-extra": "^11.0.4",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "fs-extra": "^11.3.2",
     "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#main",
@@ -39,7 +39,7 @@
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
     "vite-plugin-svgr": "^4.5.0",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.9"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
