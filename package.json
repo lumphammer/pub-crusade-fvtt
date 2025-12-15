@@ -34,7 +34,7 @@
     "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#main",
     "prettier": "^3.7.4",
     "rollup-plugin-visualizer": "^6.0.5",
-    "sass-embedded": "1.93.3",
+    "sass-embedded": "1.96.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^7.2.7",
@@ -47,10 +47,10 @@
     "@emotion/react": "^11.14.0",
     "@lumphammer/shared-fvtt-bits": "workspace:^",
     "@radix-ui/react-switch": "^1.2.6",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "nanoid": "^5.1.6",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "pnpm": {
     "overrides": {
