@@ -27,7 +27,7 @@
     "@lumphammer/investigator-fvtt-types": "^1.13.2",
     "@swc/plugin-emotion": "^7.0.3",
     "@types/fs-extra": "^11.0.4",
-    "@types/react": "^19.2.9",
+    "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "fs-extra": "^11.3.3",
@@ -49,8 +49,8 @@
     "@radix-ui/react-switch": "^1.2.6",
     "eslint": "9.39.2",
     "nanoid": "^5.1.6",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "pnpm": {
     "overrides": {
