@@ -27,7 +27,7 @@
     "@lumphammer/investigator-fvtt-types": "^1.13.2",
     "@swc/plugin-emotion": "^7.0.3",
     "@types/fs-extra": "^11.0.4",
-    "@types/react": "^19.2.13",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "fs-extra": "^11.3.3",
