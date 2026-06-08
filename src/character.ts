@@ -57,7 +57,9 @@ export function assertCharacterActor(
 
 export class CharacterModel extends foundry.abstract.TypeDataModel<
   typeof characterSchema,
-  PubCrusadeActor<"character">
+  // not fully convinced about this but it fixes a type error in roll.toMessage
+  // further down (it was PubCrusadeActor<"character"> before.)
+  Actor.Stored<"character">
 > {
   static defineSchema(): typeof characterSchema {
     return characterSchema;
