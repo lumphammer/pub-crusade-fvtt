@@ -14,7 +14,6 @@ type RichTextEditorProps = {
  * shenanigans to extract it.
  */
 type TinyMceEditor = Awaited<
-  // eslint-disable-next-line @typescript-eslint/no-deprecated
   ReturnType<typeof foundry.applications.ux.TextEditor.implementation.create>
 >;
 
