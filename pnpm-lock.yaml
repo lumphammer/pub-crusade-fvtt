@@ -7,7 +7,7 @@ settings:
 overrides:
   fvtt-types: github:League-of-Foundry-Developers/foundry-vtt-types#acdcbe498d2fa219580b76186103439fb3e241e1
   '@types/earcut': 3.0.0
-  vite: ^8.2.0
+  vite: ^8.2.1
   '@types/react': ^19.2.18
 
 importers:
@@ -33,8 +33,8 @@ importers:
         specifier: 9.39.5
         version: 9.39.5
       nanoid:
-        specifier: ^6.0.0
-        version: 6.0.0
+        specifier: ^6.0.1
+        version: 6.0.1
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -59,7 +59,7 @@ importers:
         version: 19.2.4(@types/react@19.2.18)
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
-        version: 3.7.2(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1))
+        version: 3.7.2(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11))
       fs-extra:
         specifier: ^11.4.0
         version: 11.4.0
@@ -76,20 +76,20 @@ importers:
         specifier: 1.100.0
         version: 1.100.0
       tsx:
-        specifier: ^4.23.1
-        version: 4.23.1
+        specifier: ^4.23.11
+        version: 4.23.11
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
       vite:
-        specifier: ^8.2.0
-        version: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)
+        specifier: ^8.2.1
+        version: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)
       vite-plugin-svgr:
         specifier: ^5.2.0
-        version: 5.2.0(rollup@4.46.2)(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1))
+        version: 5.2.0(rollup@4.46.2)(typescript@7.0.2)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11))
       vitest:
         specifier: ^4.1.10
-        version: 4.1.10(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1))
+        version: 4.1.10(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11))
 
   packages/shared-fvtt-bits:
     dependencies:
@@ -168,7 +168,7 @@ importers:
         version: 19.2.3(@types/react@19.2.18)
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
-        version: 3.7.2(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
+        version: 3.7.2(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
       eslint:
         specifier: ^9.39.4
         version: 9.39.4
@@ -203,14 +203,14 @@ importers:
         specifier: ^6.0.2
         version: 6.0.2
       vite:
-        specifier: ^8.2.0
-        version: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
+        specifier: ^8.2.1
+        version: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
       vite-plugin-svgr:
         specifier: ^5.2.0
-        version: 5.2.0(rollup@4.46.2)(typescript@6.0.2)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
+        version: 5.2.0(rollup@4.46.2)(typescript@6.0.2)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
       vitest:
         specifier: ^4.1.0
-        version: 4.1.4(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
+        version: 4.1.4(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
 
 packages:
 
@@ -1018,7 +1018,6 @@ packages:
 
   '@pixi/display@7.4.3':
     resolution: {integrity: sha512-b5m2dAaoNAVdxz1oDaxl3XZ059NEOcNtGkxTOZ4EYCw/jcp9sZXkgSROHRzsGn4k+NugH7+9MP4Id2Z0kkdUhw==}
-    version: 7.4.3
     peerDependencies:
       '@pixi/core': 7.4.3
 
@@ -1083,7 +1082,6 @@ packages:
 
   '@pixi/graphics@7.4.3':
     resolution: {integrity: sha512-wWLivD8/URb8A7X4TqCZGG39C91IE+aOuWY/z9NCz5Z6WvA/VWnsc5fLTlO+ggjGHgKF0cSucCXZfUe1wm0AOQ==}
-    version: 7.4.3
     peerDependencies:
       '@pixi/core': 7.4.3
       '@pixi/display': 7.4.3
@@ -1177,7 +1175,6 @@ packages:
 
   '@pixi/sprite@7.4.3':
     resolution: {integrity: sha512-iNBrpOFF9nXDT6m2jcyYy6l/sRzklLDDck1eFHprHZwvNquY2nzRfh+RGBCecxhBcijiLJ3fsZN33fP0LDXkvw==}
-    version: 7.4.3
     peerDependencies:
       '@pixi/core': 7.4.3
       '@pixi/display': 7.4.3
@@ -1972,7 +1969,7 @@ packages:
   '@vitejs/plugin-react-swc@3.7.2':
     resolution: {integrity: sha512-y0byko2b2tSVVf5Gpng1eEhX1OvPC7x8yns1Fx8jDzlJp4LS6CMkCPfLw47cjyoMrshQDoQw4qcgjsU9VvlCew==}
     peerDependencies:
-      vite: ^8.2.0
+      vite: ^8.2.1
 
   '@vitest/expect@4.1.10':
     resolution: {integrity: sha512-YsCn+qAk1GWjQOWFEsEcL2gNQ0zmVmQu3T03qP6UyjhtmdtwtbuI+DASn/7iQB3HGTXkdBwGddzxPlmiql5vlA==}
@@ -1984,7 +1981,7 @@ packages:
     resolution: {integrity: sha512-v0xaezt+DKEmKfaxg133ldzADrwLGd7Ze1MfQQTYfvs8OqZIwbxyxaYURivwV7sWy5fqn3rH5uOrSp07bp44Ow==}
     peerDependencies:
       msw: ^2.4.9
-      vite: ^8.2.0
+      vite: ^8.2.1
     peerDependenciesMeta:
       msw:
         optional: true
@@ -1995,7 +1992,7 @@ packages:
     resolution: {integrity: sha512-R9HTZBhW6yCSGbGQnDnH3QHfJxokKN4KB+Yvk9Q1le7eQNYwiCyKxmLmurSpFy6BzJanSLuEUDrD+j97Q+ZLPg==}
     peerDependencies:
       msw: ^2.4.9
-      vite: ^8.2.0
+      vite: ^8.2.1
     peerDependenciesMeta:
       msw:
         optional: true
@@ -3452,8 +3449,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@6.0.0:
-    resolution: {integrity: sha512-mkUH+rPkwU2qPadJ0oJZOjeZ5Mxn8Q1UhevwkTRWNuUZzyia3h4rhzK39hxaHTk0o2OxB8W2SQ6A8k23ZDi1pQ==}
+  nanoid@6.0.1:
+    resolution: {integrity: sha512-3wVS3i51pE2pi1k5FFL/95BGfVS0kSsvDVuGXHOtxox/TywUmtgq+3qiTOTbs9J7KfHaXPiN171k/A6dBnaXFw==}
     engines: {node: ^22 || ^24 || >=26}
     hasBin: true
 
@@ -3633,10 +3630,6 @@ packages:
   possible-typed-array-names@1.0.0:
     resolution: {integrity: sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==}
     engines: {node: '>= 0.4'}
-
-  postcss@8.5.20:
-    resolution: {integrity: sha512-lW616l85ucIQL+FocMmL7pQFPqBmwejrCMg+iPxyImlrANNJG9NHq/RkyCZopDhd8C3LA03PHRJDjkbGu8vvug==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.25:
     resolution: {integrity: sha512-DTPx3RWSSnWyzLxQnlH0rJP+EW5ekl16ZU4/psbIhA0e53kJfdgaN5vKM+xP7yJtXVu+nfdVFmlgFDEKAe4Pyw==}
@@ -4245,8 +4238,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  tsx@4.23.1:
-    resolution: {integrity: sha512-GQHnkIfxyx1wYCOS/wonik5MVRZU9hi1TEZmzGZSCJB1y9YgoZ8H6itNE/u4suE+yLmOzuE4E5S4TZ/ZX2wcWQ==}
+  tsx@4.23.11:
+    resolution: {integrity: sha512-Ry2oTEUnhBdeEdWIztY8kf3/nBGnPnjMLVGL0YfdRXMORuPER5NlKmayqxtxRxwB1xBN+RivRaJfe7PM1rtiyw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4354,10 +4347,10 @@ packages:
   vite-plugin-svgr@5.2.0:
     resolution: {integrity: sha512-qj2eAKF8C6PZWemVTvQA0xgQIcP1hHU6Buh7fl6BhvayWwnuxE+z417miKxeDvRWbDrupQ1oK99hfxElopJ3sQ==}
     peerDependencies:
-      vite: ^8.2.0
+      vite: ^8.2.1
 
-  vite@8.2.0:
-    resolution: {integrity: sha512-pn+CFpM0lwDeKwmOq1ZaBK/9sjorZcgqxki6MbY/jPEVd9vichIlmlD4HmQ5wdP5EgqQCFRaACBxMC7uEGc6lQ==}
+  vite@8.2.1:
+    resolution: {integrity: sha512-EU/eS7BH3XROHh2YnBefjM6DBKA6ZeMZEYQbj7NLWg5wHYlhB8B/Mayd5XsgWq+NFYccDOTemRpdETWR6Ka/lw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -4415,7 +4408,7 @@ packages:
       '@vitest/ui': 4.1.10
       happy-dom: '*'
       jsdom: '*'
-      vite: ^8.2.0
+      vite: ^8.2.1
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -4456,7 +4449,7 @@ packages:
       '@vitest/ui': 4.1.4
       happy-dom: '*'
       jsdom: '*'
-      vite: ^8.2.0
+      vite: ^8.2.1
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -6386,17 +6379,17 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@vitejs/plugin-react-swc@3.7.2(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))':
+  '@vitejs/plugin-react-swc@3.7.2(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))':
     dependencies:
       '@swc/core': 1.7.26
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@vitejs/plugin-react-swc@3.7.2(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1))':
+  '@vitejs/plugin-react-swc@3.7.2(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11))':
     dependencies:
       '@swc/core': 1.7.26
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -6418,21 +6411,21 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.10(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1))':
+  '@vitest/mocker@4.1.10(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11))':
     dependencies:
       '@vitest/spy': 4.1.10
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)
 
-  '@vitest/mocker@4.1.4(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))':
+  '@vitest/mocker@4.1.4(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))':
     dependencies:
       '@vitest/spy': 4.1.4
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
 
   '@vitest/pretty-format@4.1.10':
     dependencies:
@@ -8147,7 +8140,7 @@ snapshots:
 
   nanoid@3.3.16: {}
 
-  nanoid@6.0.0: {}
+  nanoid@6.0.1: {}
 
   napi-macros@2.2.2: {}
 
@@ -8348,12 +8341,6 @@ snapshots:
       '@pixi/text-html': 7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e)(@pixi/display@7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e))(@pixi/sprite@7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e)(@pixi/display@7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e)))(@pixi/text@7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e)(@pixi/sprite@7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e)(@pixi/display@7.4.3(@pixi/core@https://codeload.github.com/foundry-vtt-types/pixi-core/tar.gz/b2554df0b43183980830a08d92a960ede78ad25e))))
 
   possible-typed-array-names@1.0.0: {}
-
-  postcss@8.5.20:
-    dependencies:
-      nanoid: 3.3.16
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.25:
     dependencies:
@@ -8685,7 +8672,7 @@ snapshots:
       is-plain-object: 5.0.0
       launder: 1.7.1
       parse-srcset: 1.0.2
-      postcss: 8.5.20
+      postcss: 8.5.25
 
   sass-embedded-all-unknown@1.100.0:
     dependencies:
@@ -9105,7 +9092,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  tsx@4.23.1:
+  tsx@4.23.11:
     dependencies:
       esbuild: 0.28.0
     optionalDependencies:
@@ -9269,29 +9256,29 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-svgr@5.2.0(rollup@4.46.2)(typescript@6.0.2)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)):
+  vite-plugin-svgr@5.2.0(rollup@4.46.2)(typescript@6.0.2)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)):
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.46.2)
       '@svgr/core': 8.1.0(typescript@6.0.2)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@6.0.2))
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite-plugin-svgr@5.2.0(rollup@4.46.2)(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)):
+  vite-plugin-svgr@5.2.0(rollup@4.46.2)(typescript@7.0.2)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)):
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.46.2)
       '@svgr/core': 8.1.0(typescript@7.0.2)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@7.0.2))
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0):
+  vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.5
@@ -9306,7 +9293,7 @@ snapshots:
       sass-embedded: 1.100.0
       tsx: 4.21.0
 
-  vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1):
+  vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.5
@@ -9319,12 +9306,12 @@ snapshots:
       fsevents: 2.3.3
       sass: 1.100.0
       sass-embedded: 1.100.0
-      tsx: 4.23.1
+      tsx: 4.23.11
 
-  vitest@4.1.10(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)):
+  vitest@4.1.10(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)):
     dependencies:
       '@vitest/expect': 4.1.10
-      '@vitest/mocker': 4.1.10(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1))
+      '@vitest/mocker': 4.1.10(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11))
       '@vitest/pretty-format': 4.1.10
       '@vitest/runner': 4.1.10
       '@vitest/snapshot': 4.1.10
@@ -9341,7 +9328,7 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.0
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.1)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.23.11)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.19.10
@@ -9349,10 +9336,10 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  vitest@4.1.4(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)):
+  vitest@4.1.4(@types/node@20.19.10)(happy-dom@20.9.0)(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)):
     dependencies:
       '@vitest/expect': 4.1.4
-      '@vitest/mocker': 4.1.4(vite@8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
+      '@vitest/mocker': 4.1.4(vite@8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0))
       '@vitest/pretty-format': 4.1.4
       '@vitest/runner': 4.1.4
       '@vitest/snapshot': 4.1.4
@@ -9369,7 +9356,7 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.1.0
-      vite: 8.2.0(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
+      vite: 8.2.1(@types/node@20.19.10)(esbuild@0.28.0)(sass-embedded@1.100.0)(sass@1.100.0)(tsx@4.21.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.19.10
