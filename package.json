@@ -10,8 +10,8 @@
     "dev": "vite dev & tsc --noEmit --watch",
     "link": "./tasks.ts link",
     "unlink": "tasks.ts unlink",
-    "lint:check": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint:check": "oxlint",
+    "lint:fix": "oxlint --fix",
     "format:check": "prettier --check src",
     "format:fix": "prettier --write src",
     "do-full-release": "./packages/shared-fvtt-bits/scripts/do-full-release.sh",
@@ -23,7 +23,13 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@12.5.1",
-  "devDependencies": {},
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.5.1",
+      "onFail": "download"
+    }
+  },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
     "@emotion/css": "^11.13.5",
@@ -36,10 +42,11 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
-    "eslint": "9.39.5",
     "fs-extra": "^11.4.0",
     "fvtt-types": "catalog:",
     "nanoid": "^6.0.1",
+    "oxlint": "^1.85.0",
+    "oxlint-tsgolint": "^7.0.2002",
     "prettier": "^3.9.8",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
@@ -50,12 +57,5 @@
     "vite": "catalog:",
     "vite-plugin-svgr": "^5.2.0",
     "vitest": "catalog:"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.5.1",
-      "onFail": "download"
-    }
   }
 }
