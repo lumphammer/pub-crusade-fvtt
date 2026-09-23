@@ -21,7 +21,7 @@
       "name": "pubcrusadetables",
       "label": "Pub Crusade Tables",
       "system": "pub-crusade",
-      "path": "packs/pub-crusade-tables.db",
+      "path": "packs/pub-crusade-tables",
       "type": "RollTable"
     }
   ],
