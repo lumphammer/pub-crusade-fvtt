@@ -10,7 +10,7 @@ declare namespace RollTerm {
 declare namespace PopOut {
   interface DialogHookInfo {
     /** the parent app */
-    app: foundry.appv1.api.Application;
+    app: foundry.applications.api.ApplicationV2;
     children: Array<any>;
     close: () => void;
     css: string;

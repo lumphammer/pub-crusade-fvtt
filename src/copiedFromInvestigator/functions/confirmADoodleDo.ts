@@ -28,24 +28,28 @@ export const confirmADoodleDo = ({
     const onCancel = () => {
       resolve(false);
     };
-    const d = new foundry.appv1.api.Dialog({
-      title: "Confirm",
+    const d = new foundry.applications.api.DialogV2({
+      window: {
+        title: "Confirm",
+      },
       content: `<p>${message}</p>`,
-      buttons: {
-        cancel: {
-          icon: '<i class="fas fa-ban"></i>',
+      buttons: [
+        {
           label: cancelText,
           callback: onCancel,
+          icon: "fas fa-ban",
+          action: "cancel",
+          default: true,
         },
-        confirm: {
-          icon: `<i class="fas ${confirmIconClass}"></i>`,
+        {
           label: confirmText,
           callback: onConfirm,
+          icon: `fas ${confirmIconClass}`,
+          action: "confirm",
         },
-      },
-      default: "cancel",
+      ],
     });
-    d.render(true);
+    void d.render({ force: true });
   });
   return promise;
 };
