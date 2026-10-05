@@ -2,9 +2,9 @@ packages:
   - "packages/*"
 blockExoticSubdeps: false
 catalog:
-  "fvtt-types": "14.366.0-beta.20260926212002"
-  "vite": "^8.3.1"
-  "vitest": "^5.0.2"
+  "fvtt-types": "14.366.0-beta.20261001000223"
+  "vite": "^8.3.2"
+  "vitest": "^5.0.3"
 
   # - "@types/earcut": "3.0.0"
   # - "vite": "$vite"
