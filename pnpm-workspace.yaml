@@ -3,8 +3,8 @@ packages:
 blockExoticSubdeps: false
 catalog:
   "fvtt-types": "14.366.0-beta.20261027064042"
-  "vite": "^8.3.5"
-  "vitest": "^5.0.5"
+  "vite": "^8.3.6"
+  "vitest": "^5.1.0"
 
   # - "@types/earcut": "3.0.0"
   # - "vite": "$vite"
