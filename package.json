@@ -22,11 +22,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@12.18.0",
+  "packageManager": "pnpm@12.21.0",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.18.0",
+      "version": "12.21.0",
       "onFail": "download"
     }
   },
@@ -45,13 +45,13 @@
     "fs-extra": "^11.4.1",
     "fvtt-types": "catalog:",
     "nanoid": "^6.0.2",
-    "oxlint": "^1.92.0",
-    "oxlint-tsgolint": "^7.0.2006",
-    "prettier": "^3.9.10",
+    "oxlint": "^1.93.0",
+    "oxlint-tsgolint": "^7.0.2007",
+    "prettier": "^3.10.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "rollup-plugin-visualizer": "^7.1.2",
-    "sass-embedded": "1.108.1",
+    "rollup-plugin-visualizer": "^7.1.3",
+    "sass-embedded": "1.108.2",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "catalog:",
