@@ -4,7 +4,7 @@ blockExoticSubdeps: false
 catalog:
   "fvtt-types": "14.366.0-beta.20261027064042"
   "vite": "^8.3.8"
-  "vitest": "^5.1.0"
+  "vitest": "^5.1.1"
 
   # - "@types/earcut": "3.0.0"
   # - "vite": "$vite"
